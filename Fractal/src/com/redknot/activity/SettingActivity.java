@@ -2,11 +2,15 @@ package com.redknot.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -29,6 +33,8 @@ public class SettingActivity extends Activity{
 	
 	private SeekBar time;
 	private TextView tv_time;
+	
+	private ImageView color_show;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,14 @@ public class SettingActivity extends Activity{
 			if(seek == time){
 				tv_time.setText("time:" + i);
 			}
+			
+			
+			
+			Bitmap bitmap = Bitmap.createBitmap(50, 50, Config.ARGB_8888);
+			Canvas canvas =  new Canvas(bitmap);
+			canvas.drawColor(Color.rgb(red.getProgress(), green.getProgress(), blue.getProgress()));
+			color_show.setImageBitmap(bitmap);
+			
 		}
 
 		@Override
@@ -76,6 +90,7 @@ public class SettingActivity extends Activity{
 	
 	private void init(){
 		submit = (Button) findViewById(R.id.submit);
+		color_show = (ImageView) findViewById(R.id.color_show);
 		
 		submit.setOnClickListener(new OnClickListener() {
 			
@@ -116,5 +131,10 @@ public class SettingActivity extends Activity{
 		red.setOnSeekBarChangeListener(new MyOnSeekBarChangeListener());
 		blue.setOnSeekBarChangeListener(new MyOnSeekBarChangeListener());
 		green.setOnSeekBarChangeListener(new MyOnSeekBarChangeListener());
+		
+		Bitmap bitmap = Bitmap.createBitmap(50, 50, Config.ARGB_8888);
+		Canvas canvas =  new Canvas(bitmap);
+		canvas.drawColor(Color.rgb(red.getProgress(), green.getProgress(), blue.getProgress()));
+		color_show.setImageBitmap(bitmap);
 	}
 }

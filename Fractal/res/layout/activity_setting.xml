@@ -5,13 +5,27 @@
     android:layout_margin="16dip"
     android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dip"
-        android:layout_marginTop="25dip"
-        android:text="Set Color"
-        android:textSize="20sp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="25dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Color"
+            android:textSize="20sp" />
+        <ImageView 
+            android:id="@+id/color_show"
+            android:layout_marginLeft="25dip"
+            android:layout_width="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="20sp"
+            android:src="@drawable/ic_launcher"
+            />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_red"
