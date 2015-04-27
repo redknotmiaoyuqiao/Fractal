@@ -7,11 +7,15 @@ import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.view.SurfaceHolder;
 
+import com.redknot.g.Dragon;
 import com.redknot.g.Hualan;
 import com.redknot.g.Huangguan;
 import com.redknot.g.Koch;
+import com.redknot.g.Leaf;
 import com.redknot.g.Levy;
+import com.redknot.g.MountainView;
 import com.redknot.g.Sierpinski;
+import com.redknot.g.Stone;
 import com.redknot.g.Tree;
 import com.redknot.util.ID;
 
@@ -81,6 +85,25 @@ public class DrawMainThread implements Runnable {
 					Tree t = new Tree();
 					t.tree1(0, this.height / 2, this.width, this.height / 2, n,
 							holder, path, p);
+				}
+				
+				else if (this.id == ID.MOUNTAIN) {
+					MountainView v = new MountainView();
+					v.mountain(holder, p);
+				}
+				
+				else if (this.id == ID.LEAF) {
+					Leaf f = new Leaf();
+					f.leaf(holder, p);
+				}
+				else if (this.id == ID.STONE) {
+					Stone s = new Stone();
+					s.stone(holder, p);
+				}
+				
+				else if (this.id == ID.DRAGON) {
+					Dragon d = new Dragon();
+					d.dragon(holder, p);
 				}
 
 			}

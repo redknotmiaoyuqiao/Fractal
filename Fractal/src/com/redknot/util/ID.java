@@ -9,4 +9,7 @@ public interface ID {
 	public final static int LEVY = 6;
 	public final static int SIERPINSKI = 7;
 	public final static int TREE = 8;
+	public final static int MOUNTAIN = 9;
+	public final static int STONE = 10;
+	public final static int DRAGON = 11;
 }

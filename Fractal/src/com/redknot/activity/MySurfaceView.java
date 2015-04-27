@@ -1,6 +1,7 @@
 package com.redknot.activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -20,6 +21,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		this.holder.addCallback(this);
 		this.id = id;
 		this.n = n;this.color = color;
+		//this.setBackgroundColor(Color.WHITE);
 	}
 
 	@Override
