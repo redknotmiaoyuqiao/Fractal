@@ -8,12 +8,15 @@ import android.graphics.Path;
 import android.view.SurfaceHolder;
 
 import com.redknot.g.Dragon;
+import com.redknot.g.Fractint;
 import com.redknot.g.Hualan;
 import com.redknot.g.Huangguan;
 import com.redknot.g.Koch;
+import com.redknot.g.Landform;
 import com.redknot.g.Leaf;
 import com.redknot.g.Levy;
 import com.redknot.g.MountainView;
+import com.redknot.g.Newton;
 import com.redknot.g.Sierpinski;
 import com.redknot.g.Stone;
 import com.redknot.g.Tree;
@@ -42,6 +45,7 @@ public class DrawMainThread implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
+			
 			synchronized (holder) {
 				Paint p = new Paint();
 				p.setColor(this.color);
@@ -105,7 +109,19 @@ public class DrawMainThread implements Runnable {
 					Dragon d = new Dragon();
 					d.dragon(holder, p);
 				}
-
+				else if (this.id == ID.FRACTAL) {
+					Fractint f = new Fractint();
+					f.fractint(holder, p);
+				}
+				else if (this.id == ID.LANDFROM) {
+					Landform l =new Landform();
+					l.landform(holder, p);
+				}
+				
+				else if (this.id == ID.NEWTON) {
+					Newton n = new Newton();
+					n.newton(3, 7, holder, p);
+				}
 			}
 			// (0, this.height/2, this.width, this.height/2, 5, holder, path,p);
 		} catch (Exception e) {

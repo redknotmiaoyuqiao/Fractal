@@ -12,4 +12,7 @@ public interface ID {
 	public final static int MOUNTAIN = 9;
 	public final static int STONE = 10;
 	public final static int DRAGON = 11;
+	public final static int FRACTAL = 12;
+	public final static int LANDFROM = 13;
+	public final static int NEWTON = 14;
 }
