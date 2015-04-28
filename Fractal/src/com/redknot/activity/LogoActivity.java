@@ -3,6 +3,8 @@ package com.redknot.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -17,6 +19,10 @@ public class LogoActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_logo);
 		
