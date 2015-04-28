@@ -20,20 +20,21 @@ public class Landform {
 	    y=10000;
 	    j=1;
 	    
-		for (i = 0; i < 100000; i++) {
-			tempx = x;
-			Random random = new Random();
-			k = random.nextInt(2) + 1;
-			x = d[k][1] * tempx + d[k][2] * y + d[k][5];
-			y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-			x1 = Math.round(x) * j + 200;
-			y1 = Math.round(y) * j + 200;
-
+		for (i = 0; i < 1000; i++) {
 			Canvas c = holder.lockCanvas();
+			for (int w = 0; w < 300; w++) {
+				tempx = x;
+				Random random = new Random();
+				k = random.nextInt(2) + 1;
+				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
+				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
+				x1 = Math.round(x) * j + 200;
+				y1 = Math.round(y) * j + 200;
 
-			c.drawPoint(200 + x1, 800 - y1, p);
+				c.drawPoint(200 + x1, 800 - y1, p);
 
-			System.out.println(x1 + "    " + y1);
+				System.out.println(x1 + "    " + y1);
+			}
 
 			holder.unlockCanvasAndPost(c);
 		}

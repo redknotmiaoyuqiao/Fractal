@@ -29,27 +29,28 @@ public class MountainView {
 		y = 10000;
 		j = 1.8f;
 
-		for (i = 0; i < 1000000; i++) {
-			tempx = x;
+		for (i = 0; i < 3333; i++) {
 			
-			Random random = new Random();
-			k = random.nextInt(8)+1;
-			//k = (int) Math.random() * 8 + 1;
-			
-			System.out.println(k);
-			x = d[k][1] * tempx + d[k][2] * y + d[k][5];
-			y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-			x1 = Math.round(x * j) + 200;
-			y1 = Math.round(y * j) + 200;
-
 			Canvas c = holder.lockCanvas();
-			//c.drawColor(Color.WHITE);
-			c.drawPoint(100+x1,700-y1, p);
-			//c.drawCircle(x1, y1, 5, p);
 			
-		
+			for(int w = 0;w<300;w++){
+				tempx = x;
+				
+				Random random = new Random();
+				k = random.nextInt(8)+1;
+				//k = (int) Math.random() * 8 + 1;
+				
+				System.out.println(k);
+				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
+				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
+				x1 = Math.round(x * j) + 200;
+				y1 = Math.round(y * j) + 200;
+				
+				c.drawPoint(100+x1,700-y1, p);
+			}
+
 			holder.unlockCanvasAndPost(c);
-			// form1.Label3.Canvas.Pixels[40+x1,500-y1]:=colorbox1.Selected;
+			
 		}
 	}
 }

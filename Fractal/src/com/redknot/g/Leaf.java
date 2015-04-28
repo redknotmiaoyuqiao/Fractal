@@ -22,22 +22,22 @@ public class Leaf {
 	    x=10000;
 	    y=10000;
 	    j=1.5f;
-		for (i = 0; i < 100000; i++) {
-			tempx = x;
-
-			Random random = new Random();
-			k = random.nextInt(5) + 1;
-			x = d[k][1] * tempx + d[k][2] * y + d[k][5];
-			y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-			x1 = Math.round(x * j) + 100;
-			y1 = Math.round(y * j);
-
+		for (i = 0; i < 1000; i++) {
 			Canvas c = holder.lockCanvas();
-			
-			c.drawPoint(0 + x1, 600 - y1, p);
+			for (int w = 0; w < 300; w++) {
+				tempx = x;
 
+				Random random = new Random();
+				k = random.nextInt(5) + 1;
+				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
+				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
+				x1 = Math.round(x * j) + 100;
+				y1 = Math.round(y * j);
+
+				c.drawPoint(0 + x1, 600 - y1, p);
+			}
 			holder.unlockCanvasAndPost(c);
-			
+
 		}
 	   
 	}

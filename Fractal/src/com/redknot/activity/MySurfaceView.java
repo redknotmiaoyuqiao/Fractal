@@ -2,6 +2,7 @@ package com.redknot.activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -13,8 +14,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	private int id;
 	private int n;
 	private int color;
+	private Handler handler;
 
-	public MySurfaceView(Context context,int id,int n,int color) {
+	public MySurfaceView(Handler handler,Context context,int id,int n,int color) {
 		super(context);
 		// TODO Auto-generated constructor stub
 		this.holder = this.getHolder();
@@ -22,6 +24,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		this.id = id;
 		this.n = n;this.color = color;
 		//this.setBackgroundColor(Color.WHITE);
+		this.handler = handler;
 	}
 
 	@Override
@@ -36,7 +39,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		
 		
 		// TODO Auto-generated method stub
-		DrawMainThread t = new DrawMainThread(this.holder,getWidth(),getHeight(),this.color,this.id,this.n);
+		DrawMainThread t = new DrawMainThread(this.handler,this.holder,getWidth(),getHeight(),this.color,this.id,this.n);
 		new Thread(t).start();
 	}
 

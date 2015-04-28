@@ -1,10 +1,10 @@
 package com.redknot.thread;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
+import android.os.Handler;
+import android.os.Message;
 import android.view.SurfaceHolder;
 
 import com.redknot.g.Dragon;
@@ -30,8 +30,9 @@ public class DrawMainThread implements Runnable {
 	private int color;
 	private int id;
 	private int n;
+	private Handler handler;
 
-	public DrawMainThread(SurfaceHolder holder, int width, int height,
+	public DrawMainThread(Handler handler,SurfaceHolder holder, int width, int height,
 			int color, int id, int n) {
 		this.holder = holder;
 		this.width = width;
@@ -39,6 +40,7 @@ public class DrawMainThread implements Runnable {
 		this.color = color;
 		this.id = id;
 		this.n = n;
+		this.handler = handler;
 	}
 
 	@Override
@@ -122,10 +124,16 @@ public class DrawMainThread implements Runnable {
 					Newton n = new Newton();
 					n.newton(3, 7, holder, p);
 				}
+				
+				//Toast.makeText(context, "complete", Toast.LENGTH_LONG).show();
 			}
 			// (0, this.height/2, this.width, this.height/2, 5, holder, path,p);
 		} catch (Exception e) {
 
+		}finally{
+			Message msg = new Message();
+			msg.what = 200;
+			this.handler.sendMessage(msg);
 		}
 
 	}

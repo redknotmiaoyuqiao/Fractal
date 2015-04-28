@@ -21,21 +21,22 @@ public class Stone {
 	    x=10000;
 	    y=10000;
 	    j=1;
-		for (i = 0; i < 100000; i++) {
-			tempx = x;
-			Random random = new Random();
-			k = random.nextInt(4) + 1;
-			x = d[k][1] * tempx + d[k][2] * y + d[k][5];
-			y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-			x1 = Math.round(x) * j + 200;
-			y1 = Math.round(y) * j + 100;
-
+		for (i = 0; i < 1000; i++) {
 			Canvas c = holder.lockCanvas();
+			for (int w = 0; w < 300; w++) {
+				tempx = x;
+				Random random = new Random();
+				k = random.nextInt(4) + 1;
+				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
+				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
+				x1 = Math.round(x) * j + 200;
+				y1 = Math.round(y) * j + 100;
 
-			c.drawPoint(230 + x1, 600 - y1, p);
+				c.drawPoint(230 + x1, 600 - y1, p);
 
-			System.out.println(x1 + "    " + y1);
-			
+				System.out.println(x1 + "    " + y1);
+			}
+
 			holder.unlockCanvasAndPost(c);
 			// form1.Label3.Canvas.Pixels[x1+250,350-y1]:=colorbox1.Selected;
 		}

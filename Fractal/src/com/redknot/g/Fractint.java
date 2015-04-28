@@ -40,21 +40,21 @@ public class Fractint {
         y=10000;
         j=1;
 		   
-		for (i = 0; i < 100000; i++) {
-			tempx = x;
-			Random random = new Random();
-			k = random.nextInt(22) + 1;
-			x = d[k][1] * tempx + d[k][2] * y + d[k][5];
-			y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-			x1 = Math.round(x) * j + 200;x1 = x1*2;
-			y1 = Math.round(y) * j + 200;y1 = y1*2;
-			
+		for (i = 0; i < 1000; i++) {
 			Canvas c = holder.lockCanvas();
+			for (int w = 0; w < 300; w++) {
+				tempx = x;
+				Random random = new Random();
+				k = random.nextInt(22) + 1;
+				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
+				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
+				x1 = Math.round(x) * j + 200;
+				x1 = x1 * 2;
+				y1 = Math.round(y) * j + 200;
+				y1 = y1 * 2;
 
-			c.drawPoint( x1, 1100-y1, p);
-
-			System.out.println(x1 + "    " + y1);
-
+				c.drawPoint(x1, 1100 - y1, p);
+			}
 			holder.unlockCanvasAndPost(c);
 		}
 	}
