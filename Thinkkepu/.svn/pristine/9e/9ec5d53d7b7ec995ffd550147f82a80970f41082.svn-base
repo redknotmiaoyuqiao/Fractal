@@ -1,0 +1,39 @@
+package com.redknot.util;
+
+public class ClassListDomain {
+	private String name;
+	private int id;
+	private String list;
+	
+	public ClassListDomain(String name ,int id,String list){
+		this.setName(name);
+		this.setId(id);
+		this.setList(list);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getList() {
+		return list;
+	}
+
+	public void setList(String list) {
+		this.list = list;
+	}
+	
+	
+}
