@@ -15,23 +15,25 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int blue=0x7f060008;
-        public static final int color_show=0x7f060002;
-        public static final int green=0x7f060006;
+        public static final int blue=0x7f060009;
+        public static final int color_show=0x7f060003;
+        public static final int green=0x7f060007;
         public static final int list_view=0x7f060000;
         public static final int logo=0x7f060001;
-        public static final int red=0x7f060004;
-        public static final int submit=0x7f06000b;
-        public static final int time=0x7f06000a;
-        public static final int tv_blue=0x7f060007;
-        public static final int tv_green=0x7f060005;
-        public static final int tv_red=0x7f060003;
-        public static final int tv_time=0x7f060009;
+        public static final int red=0x7f060005;
+        public static final int submit=0x7f06000c;
+        public static final int surfaceview=0x7f060002;
+        public static final int time=0x7f06000b;
+        public static final int tv_blue=0x7f060008;
+        public static final int tv_green=0x7f060006;
+        public static final int tv_red=0x7f060004;
+        public static final int tv_time=0x7f06000a;
     }
     public static final class layout {
         public static final int activity_list=0x7f030000;
         public static final int activity_logo=0x7f030001;
-        public static final int activity_setting=0x7f030002;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_setting=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

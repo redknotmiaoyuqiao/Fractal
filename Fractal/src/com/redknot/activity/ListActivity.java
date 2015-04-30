@@ -15,7 +15,7 @@ import com.redknot.util.ID;
 public class ListActivity extends Activity{
 	
 	private ListView listview;
-	private String[] list = new String[]{"koch1","koch2","flower","crown","levy","sierpinski","tree","mountain","leaf","stone","dragon","fractint","landform"};
+	private String[] list = new String[]{"Koch1","Koch2","Flower","Carpet","Crown","Levy","Sierpinski","Tree","Mountain","Leaf","Stone","Dragon","Fractint","Landform"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,47 +44,50 @@ public class ListActivity extends Activity{
 	}
 	
 	private int getId(String name){
-		if(name.equals("koch1")){
+		if(name.equals("Koch1")){
 			return ID.KOCH1;
 		}
-		if(name.equals("leaf")){
+		if(name.equals("Leaf")){
 			return ID.LEAF;
 		}
-		if(name.equals("koch2")){
+		if(name.equals("Koch2")){
 			return ID.KOCH2;
 		}
-		if(name.equals("flower")){
+		if(name.equals("Flower")){
 			return ID.HUALAN;
 		}
-		if(name.equals("crown")){
+		if(name.equals("Crown")){
 			return ID.HUANGGUAN;
 		}
-		if(name.equals("levy")){
+		if(name.equals("Levy")){
 			return ID.LEVY;
 		}
-		if(name.equals("sierpinski")){
+		if(name.equals("Sierpinski")){
 			return ID.SIERPINSKI;
 		}
-		if(name.equals("tree")){
+		if(name.equals("Tree")){
 			return ID.TREE;
 		}
-		if(name.equals("mountain")){
+		if(name.equals("Mountain")){
 			return ID.MOUNTAIN;
 		}
-		if(name.equals("stone")){
+		if(name.equals("Stone")){
 			return ID.STONE;
 		}
-		if(name.equals("dragon")){
+		if(name.equals("Dragon")){
 			return ID.DRAGON;
 		}
-		if(name.equals("fractint")){
+		if(name.equals("Fractint")){
 			return ID.FRACTAL;
 		}
-		if(name.equals("landform")){
+		if(name.equals("Landform")){
 			return ID.LANDFROM;
 		}
-		if(name.equals("newton")){
+		if(name.equals("Newton")){
 			return ID.NEWTON;
+		}
+		if(name.equals("Carpet")){
+			return ID.CARPET;
 		}
 		return 0;
 	}

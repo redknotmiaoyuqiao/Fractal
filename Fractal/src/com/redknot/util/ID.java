@@ -15,4 +15,5 @@ public interface ID {
 	public final static int FRACTAL = 12;
 	public final static int LANDFROM = 13;
 	public final static int NEWTON = 14;
+	public final static int CARPET = 15;
 }

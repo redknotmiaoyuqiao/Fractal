@@ -13,17 +13,18 @@ public class Tree {
 		int x3, y3, x4, y4, x5, y5;
 		x3 = (int) Math.round((2 * x1 + x2) / 3.0);
 		y3 = (int) Math.round((2 * y1 + y2) / 3.0);
-		x4 = (int) Math.round((x2 - x1) * Math.cos(26.5 * Math.PI / 180.0)
-				/ 3.0 - (y2 - y1) * Math.sin(26.5 * Math.PI / 180.0) / 3.0
+		float a = 50;
+		x4 = (int) Math.round((x2 - x1) * Math.cos(a * Math.PI / 180.0)
+				/ 3.0 - (y2 - y1) * Math.sin(a * Math.PI / 180.0) / 3.0
 				+ (2.0 * x1 + x2) / 3.0);
-		y4 = (int) Math.round((y2 - y1) * Math.cos(26.5 * Math.PI / 180.0)
-				/ 3.0 + (x2 - x1) * Math.sin(26.5 * Math.PI / 180.0) / 3.0
+		y4 = (int) Math.round((y2 - y1) * Math.cos(a * Math.PI / 180.0)
+				/ 3.0 + (x2 - x1) * Math.sin(a * Math.PI / 180.0) / 3.0
 				+ (2.0 * y1 + y2) / 3.0);
-		x5 = (int) Math.round((x2 - x1) * Math.cos(-26.5 * Math.PI / 180.0)
-				/ 3.0 - (y2 - y1) * Math.sin(-26.5 * Math.PI / 180.0) / 3.0
+		x5 = (int) Math.round((x2 - x1) * Math.cos(-a * Math.PI / 180.0)
+				/ 3.0 - (y2 - y1) * Math.sin(-a * Math.PI / 180.0) / 3.0
 				+ (2.0 * x1 + x2) / 3.0);
-		y5 = (int) Math.round((y2 - y1) * Math.cos(-26.5 * Math.PI / 180.0)
-				/ 3.0 + (x2 - x1) * Math.sin(-26.5 * Math.PI / 180.0) / 3.0
+		y5 = (int) Math.round((y2 - y1) * Math.cos(-a * Math.PI / 180.0)
+				/ 3.0 + (x2 - x1) * Math.sin(-a * Math.PI / 180.0) / 3.0
 				+ (2.0 * y1 + y2) / 3.0);
 		if (n > 1) {
 			tree1(x1, y1, x3, y3, n - 1, holder, path, p);

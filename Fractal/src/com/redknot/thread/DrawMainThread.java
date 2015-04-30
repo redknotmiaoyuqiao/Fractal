@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.SurfaceHolder;
 
+import com.redknot.g.Carpet;
 import com.redknot.g.Dragon;
 import com.redknot.g.Fractint;
 import com.redknot.g.Hualan;
@@ -32,8 +33,8 @@ public class DrawMainThread implements Runnable {
 	private int n;
 	private Handler handler;
 
-	public DrawMainThread(Handler handler,SurfaceHolder holder, int width, int height,
-			int color, int id, int n) {
+	public DrawMainThread(Handler handler, SurfaceHolder holder, int width,
+			int height, int color, int id, int n) {
 		this.holder = holder;
 		this.width = width;
 		this.height = height;
@@ -45,14 +46,15 @@ public class DrawMainThread implements Runnable {
 
 	@Override
 	public void run() {
+		boolean a = true;
 		// TODO Auto-generated method stub
 		try {
-			
+
 			synchronized (holder) {
 				Paint p = new Paint();
 				p.setColor(this.color);
 				p.setStyle(Style.STROKE);
-				
+
 				if (this.id == ID.KOCH1) {
 					Koch k = new Koch();
 					k.koch1(0, this.height / 2, this.width, this.height / 2,
@@ -75,6 +77,14 @@ public class DrawMainThread implements Runnable {
 							this.height / 2, n, holder, path, p);
 				}
 
+				else if (this.id == ID.CARPET) {
+					Carpet c = new Carpet();
+					int width = this.width - 100;
+
+					c.carpet(50, this.height / 2 - width / 2, this.width - 50,
+							this.height / 2 + width / 2, n, holder, path, p);
+				}
+
 				else if (this.id == ID.SIERPINSKI) {
 					Sierpinski s = new Sierpinski();
 					int x1 = this.width / 2;
@@ -92,48 +102,46 @@ public class DrawMainThread implements Runnable {
 					t.tree1(0, this.height / 2, this.width, this.height / 2, n,
 							holder, path, p);
 				}
-				
+
 				else if (this.id == ID.MOUNTAIN) {
 					MountainView v = new MountainView();
 					v.mountain(holder, p);
 				}
-				
+
 				else if (this.id == ID.LEAF) {
 					Leaf f = new Leaf();
 					f.leaf(holder, p);
-				}
-				else if (this.id == ID.STONE) {
+				} else if (this.id == ID.STONE) {
 					Stone s = new Stone();
 					s.stone(holder, p);
 				}
-				
+
 				else if (this.id == ID.DRAGON) {
 					Dragon d = new Dragon();
 					d.dragon(holder, p);
-				}
-				else if (this.id == ID.FRACTAL) {
+				} else if (this.id == ID.FRACTAL) {
 					Fractint f = new Fractint();
 					f.fractint(holder, p);
-				}
-				else if (this.id == ID.LANDFROM) {
-					Landform l =new Landform();
+				} else if (this.id == ID.LANDFROM) {
+					Landform l = new Landform();
 					l.landform(holder, p);
 				}
-				
+
 				else if (this.id == ID.NEWTON) {
 					Newton n = new Newton();
 					n.newton(3, 7, holder, p);
 				}
-				
-				//Toast.makeText(context, "complete", Toast.LENGTH_LONG).show();
-			}
-			// (0, this.height/2, this.width, this.height/2, 5, holder, path,p);
-		} catch (Exception e) {
 
-		}finally{
-			Message msg = new Message();
-			msg.what = 200;
-			this.handler.sendMessage(msg);
+			}
+
+		} catch (Exception e) {
+			a = false;
+		} finally {
+			if (a) {
+				Message msg = new Message();
+				msg.what = 200;
+				this.handler.sendMessage(msg);
+			}
 		}
 
 	}

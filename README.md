@@ -2,17 +2,21 @@
 
 ####2015.4.28
 
-- 加入了4个IFS图像mountain，leaf，stone，dragin
+- 加入了4个IFS图像 Mountain，Leaf，Stone，Dragin
 
 
 ####2015.4.29
 
-- 加入了landform和fractint图案
-- 正在加入newton图案
+- 加入了 Landform 和 Fractint 图案
+- 正在加入 Newton 图案
 - 大幅度提升了fis的性能，至少30倍。
-- logo页和ic_launcher
+- logo 页和 ic_launcher
 
 ####2015.4.30
 
 - 使用 Markdown 书写文档
 - Markdown 挺好用
+
+####2015.5.1
+- 优化了部分逻辑嗲吗
+- 添加了 Carpet 图案

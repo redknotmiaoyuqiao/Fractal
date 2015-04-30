@@ -1,8 +1,8 @@
 package com.redknot.activity;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -10,12 +10,14 @@ import com.redknot.thread.DrawMainThread;
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback{
 	
+    
+
 	private SurfaceHolder holder;
 	private int id;
 	private int n;
 	private int color;
 	private Handler handler;
-
+	
 	public MySurfaceView(Handler handler,Context context,int id,int n,int color) {
 		super(context);
 		// TODO Auto-generated constructor stub
