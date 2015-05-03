@@ -99,7 +99,7 @@ public class DrawMainThread implements Runnable {
 
 				else if (this.id == ID.TREE) {
 					Tree t = new Tree();
-					t.tree1(0, this.height / 2, this.width, this.height / 2, n,
+					t.tree1(this.width/2, this.height, this.width/2, 0, n,
 							holder, path, p);
 				}
 
@@ -130,6 +130,11 @@ public class DrawMainThread implements Runnable {
 				else if (this.id == ID.NEWTON) {
 					Newton n = new Newton();
 					n.newton(3, 7, holder, p);
+				}
+				
+				else if (this.id == ID.TREE2) {
+					Tree t = new Tree();
+					t.Tree2(this.width/2, this.height, this.width/2, 0, n, 0.5f, 30f, 30f, holder, path, p);
 				}
 
 			}
