@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dip"
+        android:background="#CCCCCC"
+        android:text=" 2015-5-16 16:12 "
+        android:textColor="#FFFFFF" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:layout_marginTop="16dip"
+        android:background="#FFFFFF" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dip"
+            android:layout_margin="5dip" >
+
+            <ImageView
+                
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#efefef"
+                android:scaleType="fitXY"
+                android:src="@drawable/demo1" />
+            
+            <TextView 
+                android:layout_alignParentBottom="true"
+                android:text="这是测试题目"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:background="#7fBBBBBB"
+                android:minLines="1"
+                />
+        </RelativeLayout>
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:text="测试数据"
+            android:maxLines="3"
+            android:minLines="3"
+            />
+    </LinearLayout>
+
+</LinearLayout>
