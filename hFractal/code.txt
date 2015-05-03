@@ -1,0 +1,3836 @@
+//**********分形图形演示软件**************//
+  *************源程序代码****************
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Menus, ExtCtrls, jpeg;
+
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    koch1: TMenuItem;
+    tree1: TMenuItem;
+    Edit1: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    N2: TMenuItem;
+    ColorBox1: TColorBox;
+    Label3: TLabel;
+    mandelbrot1: TMenuItem;
+    julia1: TMenuItem;
+    N3: TMenuItem;
+    Newton1: TMenuItem;
+    Button5: TButton;
+    Button6: TButton;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    sierpinski1: TMenuItem;
+    IFS1: TMenuItem;
+    Button7: TButton;
+    Button8: TButton;
+    levy1: TMenuItem;
+    Button9: TButton;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    Button10: TButton;
+    Button11: TButton;
+    Image1: TImage;
+    N6: TMenuItem;
+    koch011: TMenuItem;
+    Button12: TButton;
+    N7: TMenuItem;
+    Button13: TButton;
+    Button14: TButton;
+    sierpinski2: TMenuItem;
+    Button15: TButton;
+    koch021: TMenuItem;
+    koch031: TMenuItem;
+    Button16: TButton;
+    Button17: TButton;
+    logistic1: TMenuItem;
+    Button18: TButton;
+    N011: TMenuItem;
+    Button19: TButton;
+    Label1: TLabel;
+    N8: TMenuItem;
+    Button20: TButton;
+    Button21: TButton;
+    N9: TMenuItem;
+    Edit4: TEdit;
+    Label2: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    newton011: TMenuItem;
+    Button22: TButton;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    ktreeifs1: TMenuItem;
+    Button23: TButton;
+    treeifs1: TMenuItem;
+    Button24: TButton;
+    Button25: TButton;
+    fernifs1: TMenuItem;
+    Button26: TButton;
+    N12: TMenuItem;
+    sierpinski3: TMenuItem;
+    Button27: TButton;
+    mleaf1: TMenuItem;
+    Button28: TButton;
+    Button29: TButton;
+    N13: TMenuItem;
+    N14: TMenuItem;
+    Button30: TButton;
+    Button31: TButton;
+    N15: TMenuItem;
+    Button32: TButton;
+    koch2: TMenuItem;
+    levy2: TMenuItem;
+    Button33: TButton;
+    N16: TMenuItem;
+    Button34: TButton;
+    N17: TMenuItem;
+    N18: TMenuItem;
+    Button35: TButton;
+    Button36: TButton;
+    Button37: TButton;
+    N19: TMenuItem;
+    spiral1: TMenuItem;
+    dragon1: TMenuItem;
+    N20: TMenuItem;
+    Button38: TButton;
+    Button39: TButton;
+    Button40: TButton;
+    Button41: TButton;
+    N21: TMenuItem;
+    procedure koch1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure tree1Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure mandelbrot1Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure julia1Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure N3Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure levy1Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure N4Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure sierpinski1Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure koch011Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure sierpinski2Click(Sender: TObject);
+    procedure Button14Click(Sender: TObject);
+    procedure koch021Click(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
+    procedure koch031Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
+    procedure logistic1Click(Sender: TObject);
+    procedure Button17Click(Sender: TObject);
+    procedure N011Click(Sender: TObject);
+    procedure Button18Click(Sender: TObject);
+    procedure Newton1Click(Sender: TObject);
+    procedure Button19Click(Sender: TObject);
+    procedure N8Click(Sender: TObject);
+    procedure Button20Click(Sender: TObject);
+    procedure N9Click(Sender: TObject);
+    procedure Button21Click(Sender: TObject);
+    procedure newton011Click(Sender: TObject);
+    procedure Button22Click(Sender: TObject);
+    procedure N10Click(Sender: TObject);
+    procedure N11Click(Sender: TObject);
+    procedure ktreeifs1Click(Sender: TObject);
+    procedure Button23Click(Sender: TObject);
+    procedure treeifs1Click(Sender: TObject);
+    procedure Button24Click(Sender: TObject);
+    procedure fernifs1Click(Sender: TObject);
+    procedure Button25Click(Sender: TObject);
+    procedure N12Click(Sender: TObject);
+    procedure Button26Click(Sender: TObject);
+    procedure sierpinski3Click(Sender: TObject);
+    procedure Button27Click(Sender: TObject);
+    procedure mleaf1Click(Sender: TObject);
+    procedure Button28Click(Sender: TObject);
+    procedure N13Click(Sender: TObject);
+    procedure Button29Click(Sender: TObject);
+    procedure N14Click(Sender: TObject);
+    procedure Button30Click(Sender: TObject);
+    procedure N15Click(Sender: TObject);
+    procedure Button31Click(Sender: TObject);
+    procedure koch2Click(Sender: TObject);
+    procedure levy2Click(Sender: TObject);
+    procedure Button32Click(Sender: TObject);
+    procedure Button33Click(Sender: TObject);
+    procedure N16Click(Sender: TObject);
+    procedure Button34Click(Sender: TObject);
+    procedure N17Click(Sender: TObject);
+    procedure Button35Click(Sender: TObject);
+    procedure N18Click(Sender: TObject);
+    procedure Button36Click(Sender: TObject);
+    procedure N19Click(Sender: TObject);
+    procedure Button37Click(Sender: TObject);
+    procedure spiral1Click(Sender: TObject);
+    procedure Button38Click(Sender: TObject);
+    procedure Button39Click(Sender: TObject);
+    procedure dragon1Click(Sender: TObject);
+    procedure N20Click(Sender: TObject);
+    procedure Button40Click(Sender: TObject);
+    procedure N21Click(Sender: TObject);
+    procedure Button41Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+const
+  pi=3.1415926;
+  pi1=3.1415926/180;
+  bs=0.7071068;
+var
+  Form1: TForm1;
+  d:array[1..22,1..6] of double;
+implementation
+
+{$R *.dfm}
+  procedure tree(x1,y1,x2,y2,n:integer);  //画树的调用过程
+   var
+    x3,y3,x4,y4,x5,y5:integer;
+   begin
+     x3:=round((2*x1+x2)/3.0);
+     y3:=round((2*y1+y2)/3.0);
+     x4:=round((x2-x1)*cos(26.5*pi/180.0)/3.0-(y2-y1)*sin(26.5*pi/180.0)/3.0+(2.0*x1+x2)/3.0);
+     y4:=round((y2-y1)*cos(26.5*pi/180.0)/3.0+(x2-x1)*sin(26.5*pi/180.0)/3.0+(2.0*y1+y2)/3.0);
+     x5:=round((x2-x1)*cos(-26.5*pi/180.0)/3.0-(y2-y1)*sin(-26.5*pi/180.0)/3.0+(2.0*x1+x2)/3.0);
+     y5:=round((y2-y1)*cos(-26.5*pi/180.0)/3.0+(x2-x1)*sin(-26.5*pi/180.0)/3.0+(2.0*y1+y2)/3.0);
+    if n>1 then  begin
+     tree(x1,y1,x3,y3,n-1);
+     tree(x3,y3,x4,y4,n-1);
+     tree(x3,y3,x5,y5,n-1);
+     tree(x3,y3,x2,y2,n-1);
+     end
+      else begin
+     form1.label3.Canvas.moveto(x1,y1);
+     form1.label3.Canvas.lineto(x3,y3);
+     form1.label3.Canvas.lineto(x4,y4);
+     form1.label3.Canvas.MoveTo(x3,y3);
+     form1.label3.Canvas.lineto(x5,y5);
+     form1.label3.Canvas.MoveTo(x3,y3);
+     form1.label3.Canvas.LineTo(x2,y2);
+     end;
+     end;
+
+procedure koch(x1,y1,x2,y2,n:integer);  //画koch曲线的调用过程
+   var x3,y3,x4,y4,x5,y5:integer;
+
+  begin
+     x3:=round((2.0*x1+x2)/3);
+     y3:=round((2.0*y1+y2)/3.0);
+     x4:=round((x1+x2)/2.0+(y1-y2)*Sqrt(3.0)/6.0) ;
+     y4:=round((y1+y2)/2.0+(x2-x1)*Sqrt(3.0)/6.0);
+     x5:=round((2.0*x2 +x1)/3.0);
+     y5:=round((2*y2+y1)/3.0);
+     if n=1 then begin
+     form1.label3.canvas.moveto(x1,y1);
+     form1.label3.canvas.lineto(x3,y3);
+     form1.label3.canvas.lineto(x4,y4);
+     form1.label3.canvas.lineto(x5,y5);
+     form1.label3.canvas.lineto(x2,y2);
+   end  else  begin
+     koch(x1,y1,x3,y3,n-1);
+     koch(x3,y3,x4,y4,n-1);
+     koch(x4,y4,x5,y5,n-1);
+     koch(x5,y5,x2,y2,n-1);
+
+      end;
+     end;
+procedure mandelbrot(Xmin,Xmax,Ymin,Ymax:real); //画mandelbrot集的调用过程
+    const
+R=5;
+var
+x,y,z,w,u,v:real;
+k,l,couleur:integer;
+co:longint;
+
+begin
+for k:=-100to 500 do
+   begin
+   for l:=-100to 500 do
+   begin
+   x:= (k + 100)*( Xmax-Xmin)/ 600.0 + Xmin;
+   y:= (l + 100)*( Ymax-Ymin)/ 600.0 + Ymin;
+   couleur:=0;
+   u:=0;
+   v:=0;
+   repeat
+   z:=u*u-v*v-x;
+   w:=2*u*v-y;
+   u:=z;
+   v:=w;
+   couleur:= couleur+1;
+   until (u*u+v*v>R) or (couleur=80);
+   co:=0;
+   case couleur of
+   0:co:=clBlack;
+   1:co:=clMaroon;
+   2:co:=clGreen;
+   3:co:=clNavy;
+   4:co:=clPurple;
+   5:co:=clTeal;
+   6:co:=clGray;
+   7:co:=clSilver;
+   8:co:=clRed;
+   9:co:=clLime;
+   10:co:=clBlue;
+   11:co:=clFuchsia;
+   12:co:=clAqua;
+   13:co:=clWhite;
+      end;
+   form1.label3.Canvas.pixels[k+1,l+1]:=co;
+   end;
+   end;
+   end;
+procedure julia( cx,cy,Xmin,Ymin,Xmax,Ymax:real);//画julia集的调用过程
+const
+  R=5.0;
+ var
+  x,y,z,w:real;
+  couleur,k,l:integer;
+  co:longint;
+  begin
+   for k:=-100 to 500do
+   begin
+   for l:=-100 to 500 do
+   begin
+      x:= (k + 100)*( Xmax-Xmin)/ 600.0 + Xmin;
+     y:= (l + 100)*( Ymax-Ymin)/ 600.0 + Ymin;
+   couleur:=0;
+   repeat
+        z:=sqr(x)-sqr(y)+cx;
+         w:=2*x*y+cy;
+   x:=z;
+   y:=w;
+   couleur:= couleur+1;
+   until (x*x+y*y>R) or (couleur=80);
+    co:=0;
+   case couleur of
+   0:co:=clBlack;
+   1:co:=clMaroon;
+   2:co:=clGreen;
+   3:co:=clNavy;
+   4:co:=clPurple;
+   5:co:=clTeal;
+   6:co:=clGray;
+   7:co:=clSilver;
+   8:co:=clRed;
+   9:co:=clLime;
+   10:co:=clBlue;
+   11:co:=clFuchsia;
+   12:co:=clAqua;
+   13:co:=clWhite;
+      end;
+
+   form1.Label3.canvas.pixels[k+1,l+1]:=co;
+   end;
+  end;
+  end;
+procedure huangguan(x1,y1,x2,y2,n:integer); //画皇冠曲线的调用过程
+var
+x3,y3,x4,y4,x5,y5,x6,y6,x7,y7:integer;
+begin
+x3:= round(x1+sqrt(3)*(x2-x1)/(2.0*(sqrt(3)+1))+(y2-y1)/(2.0*(sqrt(3)+1)));
+y3:=round(y1+sqrt(3)*(y2-y1)/(2.0*(sqrt(3)+1))-(x2-x1)/(2.0*(sqrt(3)+1)));
+x4:=round(x3-(y2-y1)/(sqrt(3)+1));
+y4:=round(y3+(x2-x1)/(sqrt(3)+1));
+x5:=round(x4+(x2-x1)/(2.0*(sqrt(3)+1))+(y2-y1)*sqrt(3)/(2.0*(sqrt(3)+1)));
+y5:=round(y4+(y2-y1)/(2.0*(sqrt(3)+1))-(x2-x1)*sqrt(3)/(2.0*(sqrt(3)+1)));
+x6:=round(x4+(x2-x1)/(sqrt(3)+1));
+y6:=round(y4+(y2-y1)/(sqrt(3)+1));
+x7:=round(x3+(x2-x1)/(sqrt(3)+1));
+y7:=round(y3+(y2-y1)/(sqrt(3)+1));
+   if n>1 then begin
+     huangguan(x1,y1,x3,y3,n-1);
+     huangguan(x3,y3,x4,y4,n-1);
+     huangguan(x4,y4,x5,y5,n-1);
+     huangguan(x5,y5,x6,y6,n-1);
+     huangguan(x6,y6,x7,y7,n-1);
+     huangguan(x7,y7,x2,y2,n-1);
+     end
+     else begin
+     form1.Label3.Canvas.MoveTo(x1,y1);
+     form1.Label3.Canvas.LineTo(x3,y3);
+     form1.Label3.Canvas.LineTo(x4,y4);
+     form1.Label3.Canvas.LineTo(x5,y5);
+     form1.Label3.Canvas.LineTo(x6,y6);
+     form1.Label3.Canvas.LineTo(x7,y7);
+     form1.Label3.Canvas.LineTo(x2,y2);
+     end;
+     end;
+procedure levy(x1,y1,x2,y2,n:integer);  //画levy曲线的调用过程
+  var
+  x3,y3:integer;
+  begin
+   x3:=round(x1+(x2-x1)/2.0-(y2-y1)/2.0);
+   y3:=round(y1+(x2-x1)/2.0+(y2-y1)/2.0);
+  if n>1 then begin
+     levy(x1,y1,x3,y3,n-1);
+     levy(x3,y3,x2,y2,n-1);
+     end
+     else  begin
+     form1.label3.Canvas.moveto(x1,y1);
+     form1.label3.canvas.LineTo(x3,y3);
+     form1.label3.canvas.LineTo(x2,y2);
+     end;
+     end;
+procedure hualan(x1,y1,x2,y2,n:integer);  //画花篮曲线的调用过程
+  var
+  x3,y3,x4,y4,x5,y5,x6,y6:integer;
+ begin
+       x3:=round((x2+x1)/2.0-(y2-y1)/(3.0*sqrt(5)));
+       y3:=round((y2+y1)/2.0+(x2-x1)/(3.0*sqrt(5)));
+       x4:=round(2.0*x1/5.0+3.0*x2/5.0-(y2-y1)/(3.0*sqrt(5)));
+       y4:=round(2.0*y1/5.0+3.0*y2/5.0+(x2-x1)/(3.0*sqrt(5)));
+       x5:=round((x1+x2)/2.0-(y2-y1)/sqrt(5));
+       y5:=round((y1+y2)/2.0+(x2-x1)/sqrt(5));
+       x6:=round(3.0*x1/5.0+2.0*x2/5.0-(y2-y1)/(3.0*sqrt(5)));
+       y6:=round(3.0*y1/5.0+2.0*y2/5.0+(x2-x1)/(3.0*sqrt(5)));
+     if n>1 then begin
+     hualan(x1,y1,x3,y3,n-1);
+     hualan(x3,y3,x4,y4,n-1);
+     hualan(x4,y4,x5,y5,n-1);
+     hualan(x5,y5,x6,y6,n-1);
+     hualan(x6,y6,x3,y3,n-1);
+     hualan(x3,y3,x2,y2,n-1);
+     end
+     else begin
+     form1.label3.Canvas.moveto(x1,y1);
+     form1.label3.Canvas.lineto(x3,y3);
+     form1.label3.Canvas.lineto(x4,y4);
+     form1.label3.Canvas.lineto(x5,y5);
+     form1.label3.Canvas.lineto(x6,y6);
+     form1.label3.Canvas.lineto(x3,y3);
+     form1.label3.Canvas.lineto(x2,y2);
+     end;
+     end;
+procedure leaf(x,y,l:integer;A:real);   //用一般画法绘制蕨叶图的调用过程
+var
+B,C,s1,s2,s3:real;
+x1,y1,x1L,y1L,x1R,y1R,x2,y2,x2R,y2R,x2L,y2L:real;
+begin
+B:=50;
+C:=9;
+s1:=2;
+s2:=3;
+s3:=1.3;
+If (L>s1) Then
+begin
+x2:=x+L*cos(A*PI1);
+y2:=y+L*sin(A*PI1);
+x2R:=x2+L/s2*cos((A+B)*PI1);
+y2R:=y2+L/s2*sin((A+B)*PI1);
+x2L:=x2+L/s2*cos((A-B)*PI1);
+y2L:=y2+L/s2*sin((A-B)*PI1);
+x1:=x+L/s2*cos(A*PI1);
+y1:=y+L/s2*sin(A*PI);
+x1L:=x1+L/s2*cos((A-B)*PI1);
+y1L:=y1+L/s2*sin((A-B)*PI1);
+x1R:=x1+L/s2*cos((A+B)*PI1);
+y1R:=y1+L/s1*sin((A+B)*PI1);
+Form1.label3.Canvas.MoveTo(Round(x),Round(y));
+Form1.label3.Canvas.LineTo(Round(x2),Round(y2));
+Form1.label3.Canvas.LineTo(Round(x2R),Round(y2R));
+Form1.label3.Canvas.MoveTo(Round(x2),Round(y2));
+Form1.label3.Canvas.LineTo(Round(x2L),Round(y2L));
+Form1.label3.Canvas.MoveTo(Round(x1),Round(y1));
+Form1.label3.Canvas.LineTo(Round(x1L),Round(y1L));
+Form1.label3.Canvas.MoveTo(Round(x1),Round(y1));
+Form1.label3.Canvas.LineTo(Round(x1R),Round(y1R));
+leaf(Round(x2),Round(y2),Round(L/s3),A+C);
+leaf(Round(x2R),Round(y2R),Round(L/s2),A+B);
+leaf(Round(x2L),Round(y2L),Round(L/s2),A-B);
+leaf(Round(x1L),Round(y1L),Round(L/s2),A-B);
+leaf(round(x1R),Round(y1R),Round(L/s2),A+B);
+end;
+end;
+procedure sier_gasket(xa,ya,xb,yb,xc,yc,n:integer);  //画sierpinski 三角形
+ var
+ xp,yp,xq,yq,xr,yr:integer;
+ begin
+     xp:=round((xb+xc)/2);
+     yp:=round((yb+yc)/2);
+     xq:=round((xc+xa)/2);
+     yq:=round((yc+ya)/2);
+     xr:=round((xa+xb)/2);
+     yr:=round((ya+yb)/2);
+     if n>0  then begin
+     form1.Label3.Canvas.MoveTo(xp,yp);
+     form1.Label3.canvas.LineTo(xq,yq);
+     form1.Label3.canvas.LineTo(xr,yr);
+     form1.Label3.canvas.LineTo(xp,yp);
+     form1.Label3.canvas.moveTo(xa,ya);
+     form1.Label3.Canvas.LineTo(xb,yb);
+     form1.Label3.Canvas.LineTo(xc,yc);
+     form1.Label3.Canvas.LineTo(xa,ya);
+     sier_gasket(xa,ya,xr,yr,xq,yq,n-1);
+     sier_gasket(xb,yb,xp,yp,xr,yr,n-1);
+     sier_gasket(xc,yc,xq,yq,xp,yp,n-1);
+     end;
+     end;
+//以下是画衍生图形的调用过程集合：
+procedure  koch01(x1,y1,x2,y2,n:integer);
+var
+x3,y3,x4,y4,x5,y5,x6,y6:integer;
+
+ begin
+  x3:=round((2.0*x1+x2)/3.0);
+  y3:=round((2.0*y1+y2)/3.0);
+  x4:=round((2.0*x1+x2)/3.0-(y2-y1)/3.0);
+  y4:=round((x2-x1)/3.0+(2.0*y1+y2)/3.0);
+  x5:=round((2.0*x2 +x1)/3.0-(y2-y1)/3.0);
+  y5:=round((2*y2+y1)/3.0+(x2-x1)/3.0);
+  x6:=round((2.0*x2 +x1)/3.0);
+  y6:=round((2*y2+y1)/3.0);
+
+   if  n>1 then begin
+     koch01(x1,y1,x3,y3,n-1 );
+     koch01(x3,y3,x4,y4,n-1);
+     koch01(x4,y4,x5,y5 ,n-1);
+     koch01(x5,y5,x6,y6,n-1);
+     koch01(x6,y6,x2,y2,n-1);
+     end
+     else  begin
+     form1.Label3.Canvas.MoveTo(x1,y1);
+     form1.Label3.canvas.LineTo(x3,y3);
+     form1.Label3.canvas.LineTo(x4,y4);
+     form1.Label3.canvas.LineTo(x5,y5);
+     form1.Label3.canvas.LineTo(x6,y6);
+     form1.Label3.canvas.LineTo(x2,y2);
+     end;
+     end;
+procedure TForm1.koch1Click(Sender: TObject);
+
+begin
+
+   edit1.Visible:=true;
+   edit2.Visible:=false;
+   edit3.visible:=false;
+   button1.Visible:=true;
+   button2.Visible:=true;
+   button3.Visible:=true;
+   button4.Visible:=false;
+   button5.Visible:=false;
+   button5.Visible:=false;
+   button6.visible:=false;
+   button7.Visible:=false;
+   button8.visible:=false;
+   button9.Visible:=false;
+   button10.Visible:=false;
+   button11.Visible:=false;
+   button12.visible:=false;
+   button13.Visible:=false;
+   button14.visible:=false;
+   button15.Visible:=false;
+    button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+procedure koch02(x1,y1,x2,y2,n:integer); //画koch02的调用过程
+  const
+  k = 0.2;
+  var
+ x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10:integer;
+
+  begin
+  X3:= round(X1 + k * ( X2 - X1 ));
+  Y3:= round(y1 + k * ( y2 - y1 ));
+  X4:= round(x3 + k * ( y2 - y1 ));
+  Y4:= round(y3 - k * ( x2 - x1 ));
+  X5:= round(x4 + k * ( x2 - x1 ));
+  Y5:= round(y4 + k * ( y2 - y1 ));
+  X6:=round(x1 + 2 * k * ( x2 - x1));
+  Y6:=round(y1 + 2 * k * ( y2 - y1 ));
+  X7:=round(x1 + 3 * k * ( x2 - x1 ));
+  Y7:=round( Y1 + 3 * k * ( Y2 - Y1 ));
+  X8:=round( x7 - k * ( y2 - y1 ));
+  Y8:=round(y7 + k * ( x2 - x1 ));
+  X9:=round( x8 + k * ( x2 - x1 ));
+  Y9:=round( y8 + k * ( y2 - y1 ));
+  X10:=round( x1 + 4 * k * ( x2 - x1 ));
+  Y10:=round( y1 + 4 * k * ( y2 - y1 ));
+  if n > 1  then  begin
+     koch02( x1, y1, x3, y3, n - 1);
+     koch02( x3, y3, x4, y4, n - 1);
+     koch02( x4, y4, x5, y5, n - 1);
+     koch02( x5, y5, x6, y6, n - 1);
+     koch02( x6, y6,x7, y7, n - 1);
+     koch02(x7, y7, x8, y8, n - 1);
+     koch02( x8, y8, x9, y9, n - 1);
+     koch02( x9, y9, x10, y10, n - 1);
+     koch02( x10, y10, x2, y2, n - 1);
+     end
+   else  begin
+     Form1.label3.Canvas.moveto(x1,y1);
+     Form1.label3.canvas.lineto( X3, Y3 );
+     Form1.label3.canvas.lineto( X4, Y4 );
+     Form1.label3.canvas.lineto (X5, Y5 );
+     Form1.label3.canvas.lineto( X6, Y6 );
+     Form1.label3.canvas.lineto( X7, Y7 );
+     Form1.label3.canvas.lineto( X8, Y8 );
+     Form1.label3.canvas.lineto( X9, Y9 );
+     Form1.label3.canvas.lineto( X10,Y10 );
+     Form1.label3.canvas.lineto( X2, Y2 );
+     end;
+     end;
+procedure koch03(x1,y1,x2,y2,n:integer);  //画koch03的调用过程
+  const
+  k = 0.25;
+  var
+  x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9:integer;
+  begin
+  X3:=round( X1 + k * ( X2 - X1 ));
+  Y3:=round( Y1 + k * ( Y2 - Y1 ));
+  X4:=round( X3 + k * ( Y2 - Y1 ));
+  Y4:=round( Y3 - k * ( X2 - X1 ));
+  X5:=round( X4 + k * ( X2 - X1 ));
+  Y5:=round( Y4 + k * ( Y2 - Y1 ));
+  X6:=round( X1 + 2 * k * ( X2 - X1 ));
+  Y6:=round( Y1 + 2 * k * ( Y2 - Y1 ));
+  X7:=round( X6 - k * ( Y2 - Y1 ));
+  Y7:=round( Y6 + k * ( X2 - X1 ));
+  X8:=round( X7 + k * ( X2 - X1 ));
+  Y8:=round( Y7 + k * ( Y2 - Y1 ));
+  X9:=round( X1 + 3 * k * ( X2 - X1 ));
+  Y9:=round( Y1 + 3 * k * ( Y2 - Y1 ));
+
+   if n > 1  then begin
+
+     koch03( X1, Y1, X3, Y3, n - 1);
+     koch03( X3, Y3, X4, Y4, n - 1 );
+     koch03( X4, Y4, X5, Y5, n - 1 );
+     koch03( X5, Y5, X6, Y6, n - 1);
+     koch03( X6, Y6, X7, Y7, n - 1);
+     koch03( X7, Y7, X8, Y8, n - 1 );
+     koch03( X8, Y8, X9, Y9, n - 1);
+     koch03( X9, Y9, X2, Y2, n - 1 );
+     end
+   else  begin
+     Form1.label3.Canvas.moveto(x1,y1);
+     Form1.label3.canvas.lineto( X3, Y3 );
+     Form1.label3.canvas.lineto( X4, Y4 );
+     Form1.label3.canvas.lineto (X5, Y5 );
+     Form1.label3.canvas.lineto( X6, Y6 );
+     Form1.label3.canvas.lineto( X7, Y7 );
+     Form1.label3.canvas.lineto( X8, Y8 );
+     Form1.label3.canvas.lineto( X9, Y9 );
+     Form1.label3.canvas.lineto( X2, Y2 );
+   end;
+   end;
+procedure Huangguan01(X1,Y1,X2, Y2, n:integer ); //皇冠曲线01代码
+var
+  X3, X4, X5, X6, Y3, Y4, Y5, Y6:integer;
+  k:real;
+  begin
+  k:=1/(1+sqrt(3));
+  X3:=round( X1 + k * ( sqrt( 3 ) * ( X2 - X1 ) - ( Y2 - Y1 ) ) / 2.0);
+  Y3:=round( Y1 + k * ( sqrt( 3 ) * ( Y2 - Y1 ) + ( X2 - X1 ) ) / 2.0);
+  X4:=round( X3 + k * ( Y2 - Y1 ));
+  Y4:=round( Y3 - k * ( X2 - X1 ));
+  X5:=round( X4 + k * ( X2 - X1 ));
+  Y5:=round( Y4 + k * ( Y2 - Y1 ));
+  X6:=round( X3 + k * ( X2 - X1 ));
+  Y6:=round( Y3 + k * ( Y2 - Y1 ));
+
+  if   n > 1   then begin
+
+     Huangguan01( X1, Y1, X3, Y3, n - 1 );
+     Huangguan01( X3, Y3, X4, Y4, n - 1 );
+     Huangguan01( X4, Y4, X5, Y5, n - 1);
+     Huangguan01( X5, Y5, X6, Y6, n - 1);
+     Huangguan01( X6, Y6, X2, Y2, n - 1);
+     end
+  else  begin
+
+     Form1.Label3.Canvas.MoveTo( X1, Y1 );
+     Form1.Label3.Canvas.LineTo( X3, Y3 );
+     Form1.Label3.Canvas.LineTo( X4, Y4 );
+     Form1.Label3.Canvas.LineTo( X5, Y5 );
+     Form1.Label3.Canvas.LineTo( X6, Y6 );
+     Form1.Label3.Canvas.LineTo( X2, Y2 );
+    end;
+    end;
+procedure Newton(cx,cy:real); //Newton分形图形的调用过程代码
+  const
+  R=9.0; // 模的上界
+  var
+   k,l,couleur:integer;
+   x, y, z, w:real; // 实部，虚部
+   co:integer;
+   A, B, C, D:real;
+   begin
+   for k:=-100 to 500do
+   begin
+   for l:=-100 to 500 do
+   begin
+      x:= (k + 100)/150 -2;
+      y:= (l + 100)/150 -2;
+   couleur:=0;
+   repeat
+         A:= 3 * (sqr( x ) - sqr( y) ) + cx - 1;
+         B:= 6 * x * y + cy;
+         C:= 2 * ( x * ( sqr( x) - sqr( y) ) - 2 * x * sqr( y) ) + 1 - cx;
+         D:= 2 * ( y * ( sqr( x) - sqr( y) ) + 2 * sqr( x) * y ) - cy;
+
+         z:=( A * C + B * D ) / ( sqr( A) + sqr( B) );
+         w:=( A * D - B * C ) / ( sqr(A) + sqr( B) );
+         x:=z;
+         y:=w;
+   couleur:= couleur+1;
+   until (x*x+y*y>R) or (couleur=30);
+    co:=0;
+   case couleur of
+   0:co:=clBlack;
+   1:co:=clMaroon;
+   2:co:=clGreen;
+   3:co:=clNavy;
+   4:co:=clPurple;
+   5:co:=clTeal;
+   6:co:=clGray;
+   7:co:=clSilver;
+   8:co:=clRed;
+   9:co:=clLime;
+   10:co:=clBlue;
+   11:co:=clFuchsia;
+   12:co:=clAqua;
+   13:co:=clWhite;
+   end;
+
+   form1.Label3.canvas.pixels[k+1,l+1]:=co;
+   end;
+  end;
+  end;
+procedure carpet(x1,y1,x2,y2:real;n:integer); // 画地毯的调用过程
+var
+ l,w:real;
+begin
+   if n>1 then begin
+   L:=x2-x1;
+   W:=y2-y1;
+   form1.Label3.canvas.moveto(round(x1+L/3),round(y1+W/3));
+   form1.Label3.Canvas.LineTo(round(x2-L/3),round(y1+W/3));
+   form1.Label3.Canvas.LineTo(round(x2-L/3),round(y2-W/3));
+   form1.Label3.Canvas.LineTo(round(x1+L/3),round(y2-W/3));
+   form1.Label3.Canvas.LineTo(round(x1+L/3),round(y1+W/3));
+   carpet(x1,y1,x1+L/3,y1+W/3,n-1);
+   carpet(x1+L/3,y1,x2-L/3,y1+W/3,n-1);
+   carpet(x2-L/3,y1,x2,y1+W/3,n-1);
+   carpet(x1,y1+W/3,x1+L/3,y2-W/3,n-1);
+   carpet(x2-L/3,y1+W/3,x2,y2-W/3,n-1);
+   carpet(x1,y2-W/3,x1+L/3,y2,n-1);
+   carpet(x1+L/3,y2-W/3,x2-L/3,y2,n-1);
+   carpet(x2-L/3,y2-W/3,x2,y2,n-1);
+     end;
+     end;
+procedure trees(x1,y1,x2,y2,n:integer;scale,angle_l,angle_r:real);// 画异态树调用过程
+var
+x3,y3,x4,y4,x5,y5,x6,y6:integer;
+ begin
+   X3:=round(X1 + Scale * ( X2 - X1 ));
+   Y3:=round( Y1 + Scale * ( Y2 - Y1 ));
+   X4:=round( X3 + Scale * ( cos( Angle_R * Pi / 180.0 ) * ( X2 - X1 ) - sin( Angle_R * Pi / 180.0 ) * ( Y2 - Y1 ) ));
+   Y4:=round( Y3 + Scale * ( cos( Angle_R * Pi / 180.0 ) * ( Y2 - Y1 ) + sin( Angle_R * Pi / 180.0 ) * ( X2 - X1 ) ));
+   X5:=round(  X1 + 2 * Scale * ( X2 - X1 ));
+   Y5:=round(  Y1 + 2 * Scale * ( Y2 - Y1 ));
+   X6:=round( X5 + Scale * ( cos( Angle_L * Pi / 180.0 ) * ( X2 - X1 ) + sin( Angle_L * Pi / 180.0 ) * ( Y2 - Y1 ) ));
+   Y6:=round( Y5 + Scale * ( cos( Angle_L * Pi / 180.0 ) * ( Y2 - Y1 ) - sin( Angle_L * Pi / 180.0 ) * ( X2 - X1 ) ));
+   if  n > 1  then  begin
+     Trees( X1, Y1, X3, Y3, n - 1 , Scale, Angle_L, Angle_R);
+     Trees( X3, Y3, X4, Y4,n - 1, Scale, Angle_L, Angle_R,);
+     Trees( X3, Y3, X5, Y4, n - 1 , Scale, Angle_L, Angle_R);
+     Trees( X5, Y5, X6, Y6, n - 1 , Scale, Angle_L, Angle_R);
+     Trees( X5, Y5, X2, Y2, n - 1 ,  Scale, Angle_L, Angle_R);
+      end
+    else begin
+   form1.Label3.Canvas.MoveTo(X1,Y1);
+   form1.Label3.Canvas.LineTo(x3,y3);
+   form1.Label3.Canvas.LineTo(x4,y4);
+   form1.Label3.Canvas.MoveTo(X3,Y3);
+   form1.Label3.Canvas.LineTo(x5,y5);
+   form1.Label3.Canvas.LineTo(x6,y6);
+   form1.Label3.Canvas.MoveTo(X5,Y5);
+   form1.Label3.Canvas.LineTo(x2,y2);
+   end;
+   end;
+procedure Newton01(cx,cy:real); //Newton01分形图形的调用过程代码
+  const
+  R=9.0; // 模的上界
+  var
+   k,l,couleur:integer;
+   x, y, z, w:real; // 实部，虚部
+   co:integer;
+   A, B, C, D:real;
+   begin
+   for k:=-100 to 500do
+   begin
+   for l:=-100 to 500 do
+   begin
+      x:= (k + 100)/150 -2;
+      y:= (l + 100)/150 -2;
+   couleur:=0;
+   repeat
+         A:= 6 * ( x*x*x*x*x + 5 *x* y*y*y*y - 10 * x*x*x * y*y )  + cx - 1;
+         B:= 6 * ( 5 * y * x*x*x*x + y*y*y*y*y - 10 *sqr(x)* y*sqr(y) ) + cy;
+         C:= 5 * ( sqr(x)*sqr(x)*sqr(x) - sqr(sqr(y))*sqr(y)  - 15 * x*x*x*x *sqr(y) + 15 *sqr(x) * sqr(sqr(y)) ) + 1 - cx;
+         D:= 5 * ( 6 * y * x*x*x*x*x + 6 * x * y*y*y*y*y - 20 * x*x*x * y*y*y) - cy;
+
+         z:=( A * C + B * D ) / ( sqr( A) + sqr( B) );
+         w:=( A * D - B * C ) / ( sqr(A) + sqr( B) );
+         x:=z;
+         y:=w;
+   couleur:= couleur+1;
+   until (x*x+y*y>R) or (couleur=30);
+    co:=0;
+   case couleur of
+   0:co:=clBlack;
+   1:co:=clMaroon;
+   2:co:=clGreen;
+   3:co:=clNavy;
+   4:co:=clPurple;
+   5:co:=clTeal;
+   6:co:=clGray;
+   7:co:=clSilver;
+   8:co:=clRed;
+   9:co:=clLime;
+   10:co:=clBlue;
+   11:co:=clFuchsia;
+   12:co:=clAqua;
+   13:co:=clWhite;
+   end;
+
+   form1.Label3.canvas.pixels[k+1,l+1]:=co;
+   end;
+  end;
+end;
+procedure TForm1.Button1Click(Sender: TObject);
+var n,x1,y1,x2,y2:integer;
+begin
+      label3.Canvas.pen.Color:=colorbox1.Selected;
+      n:=strtoint(edit1.Text); x1:=100;y1:=300;x2:=500;y2:=300;
+      form1.label3.Canvas.MoveTo(1,249);
+      koch(x1,y1,x2,y2,n);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+    label3.Refresh;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm1.tree1Click(Sender: TObject);
+begin
+   edit1.Visible:=true;
+   edit2.Visible:=false;
+   edit3.visible:=false;
+   edit4.Visible:=false;
+   button4.Visible:=true;
+   button2.Visible:=true;
+   button3.Visible:=true;
+   button1.Visible:=false;
+   button5.Visible:=false;
+   button6.visible:=false;
+   button7.Visible:=false;
+   button8.visible:=false;
+   button9.Visible:=false;
+   button10.Visible:=false;
+   button11.Visible:=false;
+   button12.visible:=false;
+   button13.Visible:=false;
+   button14.visible:=false;
+   button15.Visible:=false;
+   button16.Visible:=false;
+   button17.Visible:=false;
+   button18.Visible:=false;
+   button19.visible:=false;
+   button20.visible:=false;
+   button21.Visible:=false;
+   button22.visible:=false;
+   button23.Visible:=false;
+   button24.Visible:=false;
+   button25.Visible:=false;
+   button26.Visible:=false;
+   button27.Visible:=false;
+   button28.Visible:=false;
+   button29.Visible:=false;
+   button30.Visible:=false;
+   button31.Visible:=false;
+   button32.Visible:=false;
+   button33.Visible:=false;
+   button34.visible:=false;
+   button35.visible:=false;
+   button36.Visible:=false;
+   button37.Visible:=false;
+   button38.Visible:=false;
+   button39.Visible:=false;
+   button40.Visible:=false;
+   button41.Visible:=false;
+   colorbox1.Visible:=true;
+   image1.visible:=false;
+   label1.Visible:=true;
+   label2.Visible:=false;
+   label3.Visible:=true;
+   label4.visible:=false;
+   label5.Visible:=false;
+   label6.Visible:=false;
+   label7.Visible:=false;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+
+ var  x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.Text);
+   x1:=300;
+   y1:=100;
+   x2:=300;
+   y2:=500;
+   form1.label3.Canvas.MoveTo(1,249);
+   label3.Canvas.Pen.Color:=colorbox1.selected;
+   tree(x1,y1,x2,y2,n);
+end;
+
+procedure TForm1.mandelbrot1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button5.Visible:=true;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+
+end;
+
+procedure TForm1.Button5Click(Sender: TObject); //绘制mandelbrot集
+   var
+   Xmin,Xmax,Ymin,Ymax:real;
+   begin
+   Xmin:=-2;
+   Xmax:=2;
+   Ymin:=-2;
+   Ymax:=2;
+   mandelbrot( Xmin,Xmax,Ymin,Ymax);
+   end;
+
+procedure TForm1.julia1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=true;
+     edit3.visible:=true;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=true;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=true;
+     label5.Visible:=true;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject); //绘制julia集
+var
+  cx,cy,Xmin,Xmax,Ymin,Ymax:real;
+  n:integer;
+begin
+  cx:=strtofloat(edit2.text);
+  cy:=strtofloat(edit3.text);
+  Xmin:=-2;
+  Xmax:=2;
+  Ymin:=-2;
+  Ymax:=2;
+  julia(cx,cy,Xmin,Ymin,Xmax,Ymax);
+end;
+
+procedure TForm1.N3Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=true;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+
+end;
+
+procedure TForm1.Button7Click(Sender: TObject); //绘制皇冠曲线
+  var
+  x1,y1,x2,y2,n:integer;
+begin
+ n:=strtoint(edit1.Text);
+ x1:=100;
+ y1:=200;
+ x2:=500;
+ y2:=200;
+ label3.canvas.Pen.color:=colorbox1.Selected;
+ huangguan(x1,y1,x2,y2,n);
+end;
+
+procedure TForm1.levy1Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=true;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);  //绘制levy曲线
+  var  x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.Text);
+   x1:=200;
+   y1:=200;
+   x2:=400;
+   y2:=200;
+   label3.canvas.Pen.Color:=colorbox1.selected;
+   levy(x1,y1,x2,y2,n);
+end;
+
+
+procedure TForm1.N4Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=true;
+     button10.Visible:=false;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);  //绘制花篮曲线
+ var x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.text);
+   x1:=100;y1:=150;x2:=500;y2:=150;
+   label3.Canvas.Pen.Color:=colorbox1.Selected ;
+   hualan(x1,y1,x2,y2,n);
+end;
+
+procedure TForm1.N5Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=true;
+     button11.Visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button10Click(Sender: TObject); //绘制一般的蕨叶图形
+ var
+ x,y,l:integer;
+ A:real;
+begin
+ x:=200;y:=150;l:=100;A:=25;
+ label3.Canvas.pen.Color:=colorbox1.selected;
+ leaf(x,y,l,A);
+end;
+procedure TForm1.sierpinski1Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=true;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);  //绘制sierpinski曲线
+   var
+     x1,y1,x2,y2,x3,y3,n:integer;
+begin
+    n:=strtoint(edit1.Text);
+    x1:=320;
+    y1:=100;
+    x2:=170;
+    y2:=round(( 100 + 150 * sqrt( 3 ) ));
+    x3:=470;
+    y3:=round(( 100 + 150 * sqrt( 3 ) ));
+    label3.Canvas.Pen.color:=colorbox1.Selected;
+    sier_gasket(x1,y1,x3,y3,x2,y2,n);
+end;
+
+procedure TForm1.koch011Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=true;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     colorbox1.Visible:=true;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);//绘制koch01曲线
+  var  x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.Text);
+   x1:=0;
+   y1:=200;
+   x2:=640;
+   y2:=200;
+   label3.canvas.Pen.Color:=colorbox1.selected;
+   koch01(x1,y1,x2,y2,n);
+end;
+procedure TForm1.N7Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=true;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button13Click(Sender: TObject); //绘制雪花图形
+ var
+ x1,y1,x2,y2,x3,y3,n:integer;
+begin
+   x1:=100; y1:=200;x2:=500;y2:=200;x3:=300;y3:=round(200+200*sqrt(3));
+   label3.Canvas.pen.Color:=colorbox1.Selected;
+   n:=strtoint(edit1.Text); x1:=100;y1:=300;x2:=500;y2:=300;
+   form1.label3.Canvas.MoveTo(1,249);
+   koch(x2,y2,x1,y1,n);
+   koch(x3,y3,x2,y2,n);
+   koch(x1,y1,x3,y3,n);
+end;
+
+procedure TForm1.sierpinski2Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=true;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button14Click(Sender: TObject); // 绘制三维sierpinski图形
+ var
+     x1,y1,x2,y2,x3,y3,x4,y4,n:integer;
+begin
+    n:=strtoint(edit1.Text);
+    x1:=320;
+    y1:=100;
+    x2:=170;
+    y2:=round(( 100 + 150 * sqrt( 3 ) ));
+    x3:=470;
+    y3:=round(( 100 + 150 * sqrt( 3 ) ));
+    x4:=530;
+    y4:=round(( 100 + 150 * sqrt( 3 ) - 50 ));
+   label3.Canvas.Pen.color:=colorbox1.Selected;
+    sier_gasket(x1,y1,x2,y2,x3,y3,n);
+    sier_gasket(x1,y1,x3,y3,x4,y4,n);
+end;
+procedure TForm1.koch021Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=true;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     colorbox1.Visible:=true;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button15Click(Sender: TObject);  //绘制koch02曲线
+var
+ x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.Text);
+   X1:= 100;Y1:= 300; X2:= 500; Y2:= 300;
+   label3.Canvas.Pen.color:=colorbox1.Selected;
+   koch02( X1, Y1, X2, Y2, n);
+end;
+
+procedure TForm1.koch031Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=true;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button16Click(Sender: TObject);
+var
+ x1,y1,x2,y2,n:integer;
+begin
+   n:=strtoint(edit1.Text);
+   X1:= 100;Y1:= 300; X2:= 500; Y2:= 300;
+   label3.Canvas.Pen.color:=colorbox1.Selected;
+   koch03( X1, Y1, X2, Y2, n);
+end;
+
+
+procedure TForm1.logistic1Click(Sender: TObject);
+begin
+    edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=true;
+     button18.Visible:=false;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button17Click(Sender: TObject);  //绘制logistic映射函数
+  var
+ MaxX,MaxY:integer;
+ x,c,Scale:real;
+ i,j:integer;
+ begin
+   c:=-2.0;
+   MaxX:=800;
+   MaxY:=600;
+   scale:=55.0;
+   form1.Label3.Canvas.Brush.Color:=clwhite;
+   form1.Label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   for i:=0 to MaxX do
+   begin
+       x:=0;
+       c:=c+2.25/MaxX;
+       for j:=0 to 40 do
+       begin
+          x:=x*x+c;
+          if j>5 then
+           form1.Label3.Canvas.Pixels[i,round(MaxY/2+x*scale)]:=clGREEN;
+       end;
+   end;
+end;
+procedure TForm1.N011Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=true;
+     button19.visible:=false;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button18Click(Sender: TObject); //绘制皇冠曲线01；
+ var
+  x1,y1,x2,y2,n:integer;
+begin
+
+    n:= StrToInt( Edit1.Text ); //迭代次数
+    X1:= 100;
+    Y1 := 200;
+    X2 := 500;
+    Y2 := 200;//定义初试点
+    label3.Canvas.Pen.color:=colorbox1.Selected;
+    huangguan01( X1, Y1, X2, Y2, n);
+end;
+
+procedure TForm1.Newton1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=true;
+     edit3.visible:=true;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=true;
+     label5.Visible:=true;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button19Click(Sender: TObject); //绘制newton分形图形
+var
+   cx,cy:real;
+begin
+    cx:= StrToFloat( Edit2.Text ); //Newton 的 实部
+    cy:= StrToFloat( Edit3.Text ); //Newton 的 虚部
+    Newton( cx, cy );
+end;
+
+procedure TForm1.N8Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=false;
+     button20.visible:=true;
+     button21.Visible:=false;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button20Click(Sender: TObject); //绘制地毯
+   var
+     x1,y1,x2,y2,n:integer;
+begin
+    n:=strtoint(edit1.Text);
+    x1:=200;
+    y1:=100;
+    x2:=400;
+    y2:=300;
+    label3.Canvas.Pen.color:=colorbox1.Selected;
+    carpet(x1,y1,x2,y2,n);
+    end;
+
+procedure TForm1.N9Click(Sender: TObject);
+begin
+     edit1.Visible:=true;
+     edit2.Visible:=true;
+     edit3.visible:=true;
+     edit4.Visible:=true;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=false;
+     button20.visible:=false;
+     button21.Visible:=true;
+     button22.visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=true;
+     label2.Visible:=true;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=true;
+     label7.Visible:=true;
+end;
+
+procedure TForm1.Button21Click(Sender: TObject);
+ var
+x1,y1,x2,y2,n:integer;
+scale,angle_l,angle_r:real;
+ begin
+  n:=strtoint(edit1.Text);
+  scale:=strtofloat(edit4.Text);
+  angle_l:=strtofloat(edit2.Text);
+  angle_r:=strtofloat(edit3.Text);
+  x1:=320;
+  y1:=479;
+  x2:=320;
+  y2:=0;
+  label3.Canvas.Pen.color:=colorbox1.Selected;
+  trees(x1,y1,x2,y2,n,scale,angle_l,angle_r);
+end;
+procedure TForm1.newton011Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=true;
+     edit3.visible:=true;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=true;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=true;
+     label5.Visible:=true;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button22Click(Sender: TObject);  //绘制newton01
+var
+   cx,cy:real;
+begin
+    cx:= StrToFloat( Edit2.Text ); //Newton 的 实部
+    cy:= StrToFloat( Edit3.Text ); //Newton 的 虚部
+    Newton01( cx, cy );
+end;
+
+procedure TForm1.N10Click(Sender: TObject);
+begin
+showmessage('分形毕业设计'+#13+'西华大学2001级 数学与计算机科学技术学院 '+#13+'信息与计算科学专业 作者：郝飞 '+#13+ 'Email：haolaoban@eyou.com');
+end;
+procedure TForm1.N11Click(Sender: TObject);
+begin
+showmessage('1.输入迭代次数绘制出不同的分形图形'+#13+'2.实现了利用IFS编码生成分形图形'+#13+'3.实现了个别三维分形图形的生成');
+end;
+ // 以下是IFS源代码
+procedure TForm1.ktreeifs1Click(Sender: TObject); // ktree.ifs
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=true;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+ end;
+procedure TForm1.Button23Click(Sender: TObject);
+  var
+     i,k,x1,y1,j:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.33333;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.3333;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.33333;d[2,2]:=0;d[2,3]:=0;d[2,4]:=0.3333;d[2,5]:=100;d[2,6]:=0;
+   d[3,1]:=0.66667;d[3,2]:=0;d[3,3]:=0;d[3,4]:=0.6667; d[3,5]:=50;d[3,6]:=50;
+   form1.Label3.Canvas.Brush.Color:=clwhite;
+   form1.Label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=1000;
+   y:=1000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+300;
+      y1:=round(y*j)+50;
+      form1.Label3.Canvas.Pixels[x1,y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.treeifs1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=true;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button24Click(Sender: TObject);
+var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.5;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.1;d[2,2]:=0;d[2,3]:=0;d[2,4]:=0.1;d[2,5]:=0;d[2,6]:=100;
+   d[3,1]:=0.42;d[3,2]:=-0.42;d[3,3]:=0.42;d[3,4]:=0.42; d[3,5]:=0;d[3,6]:=100;
+   d[4,1]:=0.42;d[4,2]:= 0.42;d[4,3]:=-0.42;d[4,4]:=0.42; d[4,5]:=0;d[4,6]:=100;
+   form1.Label3.Canvas.Brush.Color:=clwhite;
+   form1.Label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=1000;
+   y:=1000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+300;
+      y1:=round(y*j)+150;
+      form1.Label3.Canvas.Pixels[100+x1,700-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.fernifs1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=true;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button25Click(Sender: TObject);  // 绘制fern.ifs
+var
+     i,x1,y1,k,j:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.16;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.85;d[2,2]:=0.04;d[2,3]:=-0.04;d[2,4]:=0.85;d[2,5]:=0;d[2,6]:=160*0.5;
+   d[3,1]:=0.2;d[3,2]:=-0.26;d[3,3]:=0.23;d[3,4]:=0.22; d[3,5]:=0;d[3,6]:=160*0.5;
+   d[4,1]:=-0.15;d[4,2]:= 0.28;d[4,3]:=0.26;d[4,4]:=0.24; d[4,5]:=0;d[4,6]:=44*0.5;
+   form1.Label3.Canvas.Brush.Color:=clwhite;
+   form1.Label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=1000;
+   y:=1000;
+   j:=1;
+   for i:=0 to 200000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+300;
+      y1:=round(y)*j+50;
+      form1.Label3.Canvas.Pixels[100+x1,500-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.N12Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=true;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button26Click(Sender: TObject); //绘制自然风景图形
+ var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.08;d[1,2]:=-0.031;d[1,3]:=0.084;d[1,4]:=0.0306;d[1,5]:=51.7;d[1,6]:=79.7;
+   d[2,1]:=0.0801;d[2,2]:=0.0212;d[2,3]:=-0.08;d[2,4]:=0.212;d[2,5]:=66.2;d[2,6]:=94;
+   d[3,1]:=0.75;d[3,2]:= 0;d[3,3]:=0;d[3,4]:=0.53; d[3,5]:=-3.75;d[3,6]:=11.06;
+   d[4,1]:=0.943;d[4,2]:= 0;d[4,3]:=0;d[4,4]:=0.474; d[4,5]:=-19.8;d[4,6]:=-6.5;
+   d[5,1]:=-0.402;d[5,2]:=0;d[5,3]:=0;d[5,4]:=0.402;d[5,5]:=155.13;d[5,6]:=45.88;
+   d[6,1]:=0.217;d[6,2]:=-0.052;d[6,3]:=0.075;d[6,4]:=0.15;d[6,5]:=30;d[6,6]:=57.4;
+   d[7,1]:=0.262;d[7,2]:=-0.105;d[7,3]:=0.114;d[7,4]:=0.241;d[7,5]:=-4.73;d[7,6]:=30.45;
+   d[8,1]:=0.22; d[8,2]:=0;d[8,3]:=0;d[8,4]:=0.43;d[8,5]:=146.0;d[8,6]:=42.86;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(100,100,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.8;
+   for i:=0 to 1000000 do
+   begin
+      tempx:=x;
+      k:=random(8)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+200;
+      form1.Label3.Canvas.Pixels[40+x1,500-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.sierpinski3Click(Sender: TObject);
+begin
+    edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=true;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button27Click(Sender: TObject);   //sierpinski.ifs
+ var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.5;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.5;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.5;d[2,2]:=0;d[2,3]:=0;d[2,4]:=0.5;d[2,5]:=100;d[2,6]:=0;
+   d[3,1]:=0.5;d[3,2]:= 0;d[3,3]:=0;d[3,4]:=0.5; d[3,5]:=50;d[3,6]:=50;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(3)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+200;
+      form1.Label3.Canvas.Pixels[40+x1,500-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.mleaf1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=true;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button28Click(Sender: TObject); //myleaf.ifs
+ var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.35173;d[1,2]:=0.35537;d[1,3]:=-0.35537;d[1,4]:=0.35173;d[1,5]:=35.45*4;d[1,6]:=50*4;
+   d[2,1]:=0.35338;d[2,2]:=-0.3537;d[2,3]:=0.35373;d[2,4]:=0.35338;d[2,5]:=28.79*4;d[2,6]:=15.28*4;
+   d[3,1]:=0.5;d[3,2]:= 0;d[3,3]:=0;d[3,4]:=0.5; d[3,5]:=25*4;d[3,6]:=46.2*4;
+   d[4,1]:=0.5154;d[4,2]:=-0.0018;d[4,3]:=0.00157;d[4,4]:=0.58795; d[4,5]:=25.01*4;d[4,6]:=10.54*4;
+   d[5,1]:=0.00364;d[5,2]:=0;d[5,3]:=0;d[5,4]:=0.57832;d[5,5]:=50.16*4;d[5,6]:=6.06*4;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(5)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+100;
+      y1:=round(y*j);
+      form1.Label3.Canvas.Pixels[40+x1,600-y1]:=colorbox1.Selected;
+   end;
+end;
+
+
+procedure TForm1.N13Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=true;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button29Click(Sender: TObject);   //枫叶.ifs
+ var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.6;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.6;d[1,5]:=18*5;d[1,6]:=36*5;
+   d[2,1]:=0.6;d[2,2]:=0;d[2,3]:=0;d[2,4]:=0.6;d[2,5]:=18*5;d[2,6]:=12*5;
+   d[3,1]:=0.4;d[3,2]:= 0.3;d[3,3]:=-0.3;d[3,4]:=0.4; d[3,5]:=27*5;d[3,6]:=36*5;
+   d[4,1]:=0.4;d[4,2]:=-0.3;d[4,3]:=0.3;d[4,4]:=0.4; d[4,5]:=27*5;d[4,6]:=9*5;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+80;
+      y1:=round(y)*j+150;
+      form1.Label3.Canvas.Pixels[20+x1,700-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.N14Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=true;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button30Click(Sender: TObject);   //藤类植物.ifs
+var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.333;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.333;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.3535;d[2,2]:=-0.3535;d[2,3]:=0.3535;d[2,4]:=0.3535;d[2,5]:=0;d[2,6]:=0;
+   d[3,1]:=0.3535;d[3,2]:= 0.3535;d[3,3]:=-0.3535;d[3,4]:=0.3535; d[3,5]:=0;d[3,6]:=0;
+   d[4,1]:=0.3535;d[4,2]:=0.3535;d[4,3]:=-0.3535;d[4,4]:=0.3535; d[4,5]:=35.35*4;d[4,6]:=35.35*4;
+   d[5,1]:=-0.3535;d[5,2]:=-0.3535;d[5,3]:=0.3535;d[5,4]:=-0.3535;d[5,5]:=35.35*4;d[5,6]:=35.35*4;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(5)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+80;
+      y1:=round(y)*j+150;
+      form1.Label3.Canvas.Pixels[80+x1,500-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.N15Click(Sender: TObject);
+begin
+    edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=true;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button31Click(Sender: TObject); //绘制树.ifs
+ var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.05;d[1,2]:=0;d[1,3]:=0.6;d[1,4]:=0;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.05;d[2,2]:=0;d[2,3]:=-0.5;d[2,4]:=0;d[2,5]:=0;d[2,6]:=160*0.7;
+   d[3,1]:=0.4596;d[3,2]:= -0.3214;d[3,3]:=0.3857;d[3,4]:=0.383; d[3,5]:=0;d[3,6]:=96*0.7;
+   d[4,1]:=0.4698;d[4,2]:= -0.1539;d[4,3]:=0.171;d[4,4]:=0.4229; d[4,5]:=0;d[4,6]:=176*0.7;
+   d[5,1]:=0.433;d[5,2]:=0.275;d[5,3]:=-0.25;d[5,4]:=0.4763;d[5,5]:=0;d[5,6]:=160*0.7;
+   d[6,1]:=0.4505;d[6,2]:=0.2294;d[6,3]:=-0.3155;d[6,4]:=0.3277;d[6,5]:=0;d[6,6]:=80*0.7;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(6)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+100;
+      form1.Label3.Canvas.Pixels[60+x1,600-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.koch2Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=true;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.levy2Click(Sender: TObject);
+begin
+        edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=true;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button32Click(Sender: TObject); //绘制koch曲线.ifs
+    var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.333;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.333;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.167;d[2,2]:=-0.288;d[2,3]:=0.288;d[2,4]:=0.167;d[2,5]:=33.3*6;d[2,6]:=0;
+   d[3,1]:=0.167;d[3,2]:=0.288;d[3,3]:=-0.288;d[3,4]:=0.167; d[3,5]:=50*6;d[3,6]:=28.8*6;
+   d[4,1]:=0.333;d[4,2]:=0;d[4,3]:=0;d[4,4]:=0.333; d[4,5]:=66.7*6;d[4,6]:=0;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+100;
+      form1.Label3.Canvas.Pixels[x1-250,550-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.Button33Click(Sender: TObject); //绘制levy曲线.ifs
+ var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.5;d[1,2]:=-0.5;d[1,3]:=0.5;d[1,4]:=0.5;d[1,5]:=0;d[1,6]:=80;
+   d[2,1]:=0.5;d[2,2]:=0.5;d[2,3]:=-0.5;d[2,4]:=0.5;d[2,5]:=0;d[2,6]:=80;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1.5;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(2)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+100;
+      form1.Label3.Canvas.Pixels[150+x1,600-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.N16Click(Sender: TObject);
+begin
+       edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=true;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button34Click(Sender: TObject);      //绘制水墨岩石
+    var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.3535;d[1,2]:=0.3535;d[1,3]:=-0.3535;d[1,4]:=0.3535;d[1,5]:=40*3;d[1,6]:=-30*3;
+   d[2,1]:=0.3535;d[2,2]:=-0.3535;d[2,3]:=0.3535;d[2,4]:=0.3535;d[2,5]:=-40*3;d[2,6]:=30*3;
+   d[3,1]:=0.5;d[3,2]:=0;d[3,3]:=0;d[3,4]:=0.4; d[3,5]:=0;d[3,6]:=30*3;
+   d[4,1]:=0.5;d[4,2]:=0;d[4,3]:=0;d[4,4]:=0.1; d[4,5]:=0;d[4,6]:=-30*3;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(4)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+100;
+      form1.Label3.Canvas.Pixels[x1+250,350-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.N17Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=true;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button35Click(Sender: TObject);  //绘制龙曲线.ifs
+    var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.5;d[1,2]:=-0.5;d[1,3]:=0.5;d[1,4]:=0.5;d[1,5]:=100;d[1,6]:=0;
+   d[2,1]:=0.5;d[2,2]:=-0.5;d[2,3]:=0.5;d[2,4]:=0.5;d[2,5]:=-100;d[2,6]:=0;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(2)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+100;
+      form1.Label3.Canvas.Pixels[x1+120,350-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.N18Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=true;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button36Click(Sender: TObject);  //绘制双曲分形.ifs
+    var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.13;d[1,2]:=-0.64;d[1,3]:=0.64;d[1,4]:=0.13;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.13;d[2,2]:=-0.64;d[2,3]:=0.64;d[2,4]:=0.13;d[2,5]:=0;d[2,6]:=200;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(2)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+100;
+      form1.Label3.Canvas.Pixels[x1+250,480-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.N19Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=true;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button37Click(Sender: TObject);    //绘制金字塔.ifs
+    var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.5;d[1,2]:=0;d[1,3]:=0;d[1,4]:=0.5;d[1,5]:=0;d[1,6]:=0;
+   d[2,1]:=0.5;d[2,2]:=0;d[2,3]:=0;d[2,4]:=0.5;d[2,5]:=100*4;d[2,6]:=0;
+   d[3,1]:=0.5;d[3,2]:=0;d[3,3]:=0;d[3,4]:=0.5; d[3,5]:=50*4;d[3,6]:=50*4;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(3)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+100;
+      form1.Label3.Canvas.Pixels[x1-200,550-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.spiral1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=true;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button38Click(Sender: TObject); //绘制spiral.ifs
+   var
+     i,k,x1,y1:integer;
+     tempx,x,y,j:real;
+begin
+   d[1,1]:=0.787879;d[1,2]:=-0.424242;d[1,3]:=0.242424;d[1,4]:=0.859848;d[1,5]:=17.58647*4;d[1,6]:=14.08065*4;
+   d[2,1]:=-0.121212;d[2,2]:=0.257576;d[2,3]:=0.151515;d[2,4]:=0.053030;d[2,5]:=-60.72165*4;d[2,6]:=13.77236*4;
+   d[3,1]:=0.181818;d[3,2]:=-0.136364;d[3,3]:=0.090909;d[3,4]:=0.181818; d[3,5]:=60.86107*4;d[3,6]:=15.68035*4;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=0.7;
+   for i:=0 to 180000 do
+   begin
+      tempx:=x;
+      k:=random(3)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x*j)+200;
+      y1:=round(y*j)+100;
+      form1.Label3.Canvas.Pixels[x1+150,500-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.Button39Click(Sender: TObject);  //绘制dragon.ifs
+   var
+     i,k,j,x1,y1:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0.824074;d[1,2]:=0.281482;d[1,3]:=-0.212346;d[1,4]:=0.864198;d[1,5]:=-18.82290*5;d[1,6]:=-1.10607*5;
+   d[2,1]:=0.088272;d[2,2]:=0.520988;d[2,3]:=-0.463899;d[2,4]:=-0.377778;d[2,5]:=7.85360*5;d[2,6]:=80.95295*5;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(10,10,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(2)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+100;
+      form1.Label3.Canvas.Pixels[x1+150,650-y1]:=colorbox1.Selected;
+   end;
+end;
+
+procedure TForm1.dragon1Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=true;
+     button40.Visible:=false;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.N20Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=true;
+     button41.Visible:=false;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button40Click(Sender: TObject);  //绘制分形字fractint程序
+ var
+     i,k,x1,y1,j:integer;
+     tempx,x,y:real;
+begin
+   d[1,1]:=0;d[1,2]:=-0.11;d[1,3]:=0.22;d[1,4]:=0;d[1,5]:=-62.5*2;d[1,6]:=48.4*2;
+   d[2,1]:=0.11;d[2,2]:=0.02;d[2,3]:=0;d[2,4]:=0.11;d[2,5]:=-63*2;d[2,6]:=59.9*2;
+   d[3,1]:=0.06;d[3,2]:=0.02;d[3,3]:=0;d[3,4]:=0.10; d[3,5]:=-62.5*2;d[3,6]:=45.1*2;
+   d[4,1]:=0;d[4,2]:= -0.11;d[4,3]:=0.22;d[4,4]:=0; d[4,5]:=-43.4*2;d[4,6]:=48.4*2;
+   d[5,1]:=0.08;d[5,2]:=0;d[5,3]:=0;d[5,4]:=0.11;d[5,5]:=-45*2;d[5,6]:=59.9*2;
+   d[6,1]:=0;d[6,2]:=0.11;d[6,3]:=-0.08;d[6,4]:=0;d[6,5]:=-43*2;d[6,6]:=61.5*2;
+   d[7,1]:=-0.09;d[7,2]:=0;d[7,3]:=-0.01;d[7,4]:=-0.13;d[7,5]:=-41.5*2;d[7,6]:=59.4*2;
+   d[8,1]:=0.06; d[8,2]:=0.11;d[8,3]:=-0.13;d[8,4]:=0;d[8,5]:=-46.9*2;d[8,6]:=41.5*2;
+   d[9,1]:=0.03;d[9,2]:=-0.11;d[9,3]:=0.23;d[9,4]:=0.11;d[9,5]:=-22.6*2;d[9,6]:=44.3*2;
+   d[10,1]:=0.03;d[10,2]:=0.11;d[10,3]:=-0.25;d[10,4]:=0;d[10,5]:=-25.7*2;d[10,6]:=49.1*2;
+   d[11,1]:=0.06;d[11,2]:=0;d[11,3]:=0;d[11,4]:=0.11; d[11,5]:=-24*2;d[11,6]:=44.6*2;
+   d[12,1]:=0;d[12,2]:=0.11;d[12,3]:=-0.19;d[12,4]:=0;d[12,5]:=-16.2*2;d[12,6]:=49.9*2;
+   d[13,1]:=0.09;d[13,2]:=-0.01;d[13,3]:=0;d[13,4]:=0.1;d[13,5]:=-5.8*2;d[13,6]:=29.6*2;
+   d[14,1]:=-0.09;d[14,2]:=0;d[14,3]:=0;d[14,4]:=-0.11;d[14,5]:=-6.5*2;d[14,6]:=71*2;
+   d[15,1]:=0.12;d[15,2]:=0;d[15,3]:=0;d[15,4]:=0.11;d[15,5]:=12.4*2;d[15,6]:=60*2;
+   d[16,1]:=0;d[16,2]:=0.11;d[16,3]:=-0.22;d[16,4]:=0;d[16,5]:=6.8*2;d[16,6]:=48*2;
+   d[17,1]:=-0.12;d[17,2]:=0;d[17,3]:=0;d[17,4]:=-0.13; d[17,5]:=61.7*2;d[17,6]:=71.8*2;
+   d[18,1]:=0;d[18,2]:=-0.11;d[18,3]:=0.22;d[18,4]:=0; d[18,5]:=67.8*2;d[18,6]:=48.4*2;
+   d[19,1]:=0;d[19,2]:=0.08;d[19,3]:=-0.25;d[19,4]:=0.02;d[19,5]:=22.1*2;d[19,6]:=49.5*2;
+   d[20,1]:=0;d[20,2]:=-0.11;d[20,3]:=0.22;d[20,4]:=0;d[20,5]:=41*2;d[20,6]:=48.4*2;
+   d[21,1]:=0;d[21,2]:=-0.11;d[21,3]:=0.22;d[21,4]:=0;d[21,5]:=52.5*2;d[21,6]:=52.3*2;
+   d[22,1]:=0.08; d[22,2]:=0.11;d[22,3]:=-0.25;d[22,4]:=0;d[22,5]:=35.7*2;d[22,6]:=49.9*2;
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(100,100,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000do
+   begin
+      tempx:=x;
+      k:=random(22)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+200;
+      form1.Label3.Canvas.Pixels[40+x1,500-y1]:=colorbox1.Selected;
+   end;
+end;
+procedure TForm1.N21Click(Sender: TObject);
+begin
+     edit1.Visible:=false;
+     edit2.Visible:=false;
+     edit3.visible:=false;
+     edit4.Visible:=false;
+     button1.Visible:=false;
+     button5.Visible:=false;
+     button2.Visible:=true;
+     button3.Visible:=true;
+     button4.Visible:=false;
+     button6.visible:=false;
+     button7.Visible:=false;
+     button8.visible:=false;
+     button9.Visible:=false;
+     button10.Visible:=false;
+     button11.visible:=false;
+     button12.visible:=false;
+     button13.Visible:=false;
+     button14.visible:=false;
+     button15.Visible:=false;
+     button16.Visible:=false;
+     button17.Visible:=false;
+     button18.Visible:=false;
+     button19.Visible:=true;
+     button20.visible:=false;
+     button21.Visible:=false;
+     button22.Visible:=false;
+     button23.Visible:=false;
+     button24.Visible:=false;
+     button25.Visible:=false;
+     button26.Visible:=false;
+     button27.Visible:=false;
+     button28.Visible:=false;
+     button29.Visible:=false;
+     button30.Visible:=false;
+     button31.Visible:=false;
+     button32.Visible:=false;
+     button33.Visible:=false;
+     button34.visible:=false;
+     button35.visible:=false;
+     button36.Visible:=false;
+     button37.Visible:=false;
+     button38.Visible:=false;
+     button39.Visible:=false;
+     button40.Visible:=false;
+     button41.Visible:=true;
+     colorbox1.Visible:=true;
+     image1.visible:=false;
+     label1.Visible:=false;
+     label2.Visible:=false;
+     label3.Visible:=true;
+     label4.visible:=false;
+     label5.Visible:=false;
+     label6.Visible:=false;
+     label7.Visible:=false;
+end;
+
+procedure TForm1.Button41Click(Sender: TObject); //绘制分形地貌
+  var
+     i,k,x1,y1,j:integer;
+     tempx,x,y:real;
+  begin
+d[1,1]:=-0.632407 ; d[1,2]:=-0.614815; d[1,3]:=-0.545370;d[1,4]:=0.659259; d[1,5]:=38.40822*3;d[1,6]:=12.82321*3;
+d[2,1]:= -0.036111;  d[2,2]:= 0.444444 ;  d[2,3]:=0.210185;d[2,4]:=0.037037;  d[2,5]:=20.71081*3; d[2,6]:=83.30552*3;
+
+   form1.label3.Canvas.Brush.Color:=clwhite;
+   form1.label3.Canvas.FloodFill(100,100,clgreen,fsBorder);
+   x:=10000;
+   y:=10000;
+   j:=1;
+   for i:=0 to 100000 do
+   begin
+      tempx:=x;
+      k:=random(2)+1;
+      x:=d[k,1]*tempx+d[k,2]*y+d[k,5];
+      y:=d[k,3]*tempx+d[k,4]*y+d[k,6];
+      x1:=round(x)*j+200;
+      y1:=round(y)*j+200;
+      form1.Label3.Canvas.Pixels[100+x1,700-y1]:=colorbox1.Selected;
+   end;
+end;
+end.
+
