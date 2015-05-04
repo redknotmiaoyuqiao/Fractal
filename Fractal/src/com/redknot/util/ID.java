@@ -17,4 +17,5 @@ public interface ID {
 	public final static int NEWTON = 14;
 	public final static int CARPET = 15;
 	public final static int TREE2 = 16;
+	public final static int LEAF2 = 17;
 }

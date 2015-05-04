@@ -15,7 +15,7 @@ import com.redknot.util.ID;
 public class ListActivity extends Activity{
 	
 	private ListView listview;
-	private String[] list = new String[]{"Koch1","Koch2","Flower","Carpet","Crown","Levy","Sierpinski","Tree","Tree2","Mountain","Leaf","Stone","Dragon","Fractint","Landform"};
+	private String[] list = new String[]{"Koch1","Koch2","Flower","Carpet","Crown","Levy","Sierpinski","Tree","Mountain","Leaf","Leaf2","Stone","Dragon","Fractint","Landform"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +91,9 @@ public class ListActivity extends Activity{
 		}
 		if(name.equals("Tree2")){
 			return ID.TREE2;
+		}
+		if(name.equals("Leaf2")){
+			return ID.LEAF2;
 		}
 		return 0;
 	}

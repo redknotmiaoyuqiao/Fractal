@@ -136,6 +136,12 @@ public class DrawMainThread implements Runnable {
 					Tree t = new Tree();
 					t.Tree2(this.width/2, this.height, this.width/2, 0, n, 0.5f, 30f, 30f, holder, path, p);
 				}
+				
+				else if (this.id == ID.LEAF2) {
+					Leaf f= new Leaf();
+					//f.leaf2(x, y, L, A, holder, path, p);
+					f.leaf2(this.width/2, this.height/2, n, 0.5f, holder, path, p);
+				}
 
 			}
 
