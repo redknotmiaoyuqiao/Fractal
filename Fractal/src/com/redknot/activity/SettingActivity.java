@@ -16,6 +16,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.redknot.fractal.R;
+import com.redknot.g.G;
 
 public class SettingActivity extends Activity{
 	
@@ -29,7 +30,7 @@ public class SettingActivity extends Activity{
 	
 	private Button submit;
 	
-	private int id = 0;
+	//private int id = 0;
 	
 	private SeekBar time;
 	private TextView tv_time;
@@ -42,7 +43,7 @@ public class SettingActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
 		
-		id = getIntent().getIntExtra("id", 0);
+		//id = getIntent().getIntExtra("id", 0);
 		
 		init();
 	}
@@ -98,9 +99,10 @@ public class SettingActivity extends Activity{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(SettingActivity.this,MainActivity.class);
-				intent.putExtra("id", id);
-				intent.putExtra("n", time.getProgress());
-				intent.putExtra("color", Color.rgb(red.getProgress(), green.getProgress(), blue.getProgress()));
+				
+				G.n = time.getProgress();
+				G.color = Color.rgb(red.getProgress(), green.getProgress(), blue.getProgress());
+				
 				startActivity(intent);
 			}
 		});

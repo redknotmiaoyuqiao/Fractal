@@ -10,6 +10,7 @@ import android.view.SurfaceHolder;
 import com.redknot.g.Carpet;
 import com.redknot.g.Dragon;
 import com.redknot.g.Fractint;
+import com.redknot.g.G;
 import com.redknot.g.Hualan;
 import com.redknot.g.Huangguan;
 import com.redknot.g.Koch;
@@ -34,19 +35,20 @@ public class DrawMainThread implements Runnable {
 	private Handler handler;
 
 	public DrawMainThread(Handler handler, SurfaceHolder holder, int width,
-			int height, int color, int id, int n) {
+			int height) {
 		this.holder = holder;
 		this.width = width;
 		this.height = height;
-		this.color = color;
-		this.id = id;
-		this.n = n;
+		this.color = G.color;
+		this.id = G.id;
+		this.n = G.n;
 		this.handler = handler;
 	}
 
 	@Override
 	public void run() {
 		boolean a = true;
+		path.reset();
 		// TODO Auto-generated method stub
 		try {
 
@@ -134,7 +136,8 @@ public class DrawMainThread implements Runnable {
 				
 				else if (this.id == ID.TREE2) {
 					Tree t = new Tree();
-					t.Tree2(this.width/2, this.height, this.width/2, 0, n, 0.5f, 30f, 30f, holder, path, p);
+					
+					t.Tree2(this.width/2, this.height, this.width/2, 0, n, G.Scale, G.Angle_L, G.Angle_R, holder, path, p);
 				}
 				
 				else if (this.id == ID.LEAF2) {
