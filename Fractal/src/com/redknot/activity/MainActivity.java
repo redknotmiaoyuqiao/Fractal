@@ -1,7 +1,6 @@
 package com.redknot.activity;
 
 
-import com.redknot.fractal.R;
 import com.redknot.weibo.ShareActivity;
 
 import android.annotation.SuppressLint;
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -34,7 +32,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu);
 		
-		menu.add(0,100,0,"分享");
+		menu.add(0,100,0,"share");
 		
 		return true;
 	}

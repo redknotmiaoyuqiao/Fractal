@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.redknot.fractal.R;
@@ -18,17 +21,35 @@ public class ShareActivity extends Activity{
 	private AuthInfo mAuthInfo;
 	private SsoHandler mSsoHandler;
 	private Oauth2AccessToken mAccessToken;
+	
+	private Button btn_share;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_share);
+		
+		btn_share = (Button) findViewById(R.id.btn_share);
 		
 		mAuthInfo = new AuthInfo(this, Constants.APP_KEY,
 				Constants.REDIRECT_URL, Constants.SCOPE);
 		
 		mSsoHandler = new SsoHandler(ShareActivity.this, mAuthInfo);
 		//mSsoHandler.authorizeWeb(new AuthListener());
-		mSsoHandler.authorize(new AuthListener());
+		
+		
+		btn_share.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				mSsoHandler.authorize(new AuthListener());
+				//mSsoHandler.authorizeWeb(new AuthListener());
+				
+			}
+		});
+		
 	}
 	
 	@Override
@@ -53,9 +74,9 @@ class AuthListener implements WeiboAuthListener {
                 //updateTokenView(false);
                 
                 // 保存 Token 到 SharedPreferences
-                //AccessTokenKeeper.writeAccessToken(WBAuthActivity.this, mAccessToken);
+                AccessTokenKeeper.writeAccessToken(ShareActivity.this, mAccessToken);
                 Toast.makeText(ShareActivity.this, 
-                        "success", Toast.LENGTH_SHORT).show();
+                        "success:" + mAccessToken.getToken(), Toast.LENGTH_SHORT).show();
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；

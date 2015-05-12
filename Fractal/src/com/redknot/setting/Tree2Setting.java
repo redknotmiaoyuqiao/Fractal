@@ -16,7 +16,6 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.redknot.activity.MainActivity;
-import com.redknot.activity.SettingActivity;
 import com.redknot.fractal.R;
 import com.redknot.g.G;
 

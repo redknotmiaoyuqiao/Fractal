@@ -3,7 +3,6 @@ package com.redknot.g;
 import java.util.Random;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 

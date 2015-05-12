@@ -25,18 +25,18 @@ public class Newton {
 					A = 6
 							* (x * x * x * x * x + 5 * x * y * y * y * y - 10
 									* x * x * x * y * y) + cx - 1;
-					B = (float) (6 * (5 * y * x * x * x * x + y * y * y * y * y - 10
-							* x*x * y * y*y) + cy);
-					C = (float) (5 * x*x * x*x
+					B = 6 * (5 * y * x * x * x * x + y * y * y * y * y - 10
+							* x*x * y * y*y) + cy;
+					C = 5 * x*x * x*x
 							* (x*x) - y*y*y*y
 							* y*y - 15 * x * x * x * x * y*y + 15
-							* x*x * y*y*y*y + 1 - cx);
+							* x*x * y*y*y*y + 1 - cx;
 					D = 5
 							* (6 * y * x * x * x * x * x + 6 * x * y * y * y
 									* y * y - 20 * x * x * x * y * y * y) - cy;
 
-					z = (float) ((A * C + B * D) / (A*A) + (B*B));
-					w = (float) ((A * D - B * C) / (A*A) + (B*B));
+					z = (A * C + B * D) / (A*A) + (B*B);
+					w = (A * D - B * C) / (A*A) + (B*B);
 					x = z;
 					y = w;
 					couleur = couleur + 1;

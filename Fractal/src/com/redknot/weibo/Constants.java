@@ -2,7 +2,7 @@ package com.redknot.weibo;
 
 public interface Constants {
 
-	public static final String APP_KEY = "3291669849";
+	public static final String APP_KEY = "2348387726";
 	public static final String REDIRECT_URL = "http://www.sina.com";
 
 	public static final String SCOPE =
