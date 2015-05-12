@@ -33,9 +33,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
 	@Override
 	public void surfaceCreated(SurfaceHolder arg0) {
-		
-		
-		
+
 		// TODO Auto-generated method stub
 		DrawMainThread t = new DrawMainThread(this.handler,this.holder,getWidth(),getHeight());
 		new Thread(t).start();

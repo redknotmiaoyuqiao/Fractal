@@ -3,6 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="300dip"
+        android:id="@+id/img_show"
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
