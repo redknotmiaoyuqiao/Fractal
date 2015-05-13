@@ -2,12 +2,22 @@ package com.redknot.g;
 
 import java.util.Random;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Dragon {
 	public void dragon(SurfaceHolder holder, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		
+		c.drawColor(Color.WHITE);
+		
+		
 		int i, k, j, x1, y1;
 		float tempx, x, y;
 
@@ -30,11 +40,9 @@ public class Dragon {
 		y = 10000;
 		j = 1;
 
-		for (i = 0; i < 3000; i++) {
+		for (i = 0; i < 5000; i++) {
 
-			Canvas c = holder.lockCanvas();
-
-			for (int w = 0; w < 500; w++) {
+			for (int w = 0; w < 300; w++) {
 				tempx = x;
 				Random random = new Random();
 				k = random.nextInt(2) + 1;
@@ -42,14 +50,10 @@ public class Dragon {
 				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
 				x1 = Math.round(x) * j + 200;
 				y1 = Math.round(y) * j + 100;
-				
 				c.drawPoint(200 + x1, 650 - y1, p);
 			}
-
-			holder.unlockCanvasAndPost(c);
-			System.out.println(i);
+			G.addBitmap(holder, bitmap);
 		}
 		
-		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXX");
 	}
 }

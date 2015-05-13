@@ -1,9 +1,11 @@
 package com.redknot.g;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Tree {
@@ -11,6 +13,11 @@ public class Tree {
 	public void Tree2(int X1, int Y1, int X2, int Y2, int n, float Scale,
 			float Angle_L, float Angle_R, SurfaceHolder holder, Path path,
 			Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		
+		
 		int X3, Y3, X4, Y4, X5, Y5, X6, Y6;
 		X3 = Math.round(X1 + Scale * (X2 - X1));
 		Y3 = Math.round(Y1 + Scale * (Y2 - Y1));
@@ -54,19 +61,24 @@ public class Tree {
 			path.moveTo(X5, Y5);
 			path.lineTo(X2, Y2);
 			
-			Canvas c = holder.lockCanvas();
+			
 
 			if (path.isEmpty()) {
 				path.moveTo(X1, Y1);
 			}
 			c.drawColor(Color.WHITE);
 			c.drawPath(path, p);
-			holder.unlockCanvasAndPost(c);
+			
+			G.addBitmap(holder, bitmap);
 		}
 	}
 
 	public void tree1(int x1, int y1, int x2, int y2, int n,
 			SurfaceHolder holder, Path path, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		
 		int x3, y3, x4, y4, x5, y5;
 		x3 = (int) Math.round((2 * x1 + x2) / 3.0);
 		y3 = (int) Math.round((2 * y1 + y2) / 3.0);
@@ -89,7 +101,7 @@ public class Tree {
 			tree1(x3, y3, x5, y5, n - 1, holder, path, p);
 			tree1(x3, y3, x2, y2, n - 1, holder, path, p);
 		} else {
-			Canvas c = holder.lockCanvas();
+			
 
 			if (path.isEmpty()) {
 				path.moveTo(x1, y1);
@@ -104,7 +116,8 @@ public class Tree {
 			path.lineTo(x2, y2);
 			c.drawColor(Color.WHITE);
 			c.drawPath(path, p);
-			holder.unlockCanvasAndPost(c);
+			
+			G.addBitmap(holder, bitmap);
 		}
 	}
 

@@ -16,7 +16,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity android:name="com.redknot.activity.LogoActivity" >

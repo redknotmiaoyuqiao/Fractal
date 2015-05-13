@@ -2,12 +2,20 @@ package com.redknot.g;
 
 import java.util.Random;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class MountainView {
 	public void mountain(SurfaceHolder holder, Paint p){
+		
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		c.drawColor(Color.WHITE);
 		
 		int i,k,x1,y1;
 	    float tempx,x,y,j;
@@ -29,7 +37,6 @@ public class MountainView {
 
 		for (i = 0; i < 3333; i++) {
 			
-			Canvas c = holder.lockCanvas();
 			
 			for(int w = 0;w<300;w++){
 				tempx = x;
@@ -47,7 +54,7 @@ public class MountainView {
 				c.drawPoint(100+x1,700-y1, p);
 			}
 
-			holder.unlockCanvasAndPost(c);
+			G.addBitmap(holder, bitmap);
 			
 		}
 	}

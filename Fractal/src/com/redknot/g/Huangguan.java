@@ -1,14 +1,21 @@
 package com.redknot.g;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Huangguan {
 	public void huangguan(int x1, int y1, int x2, int y2, int n,
 			SurfaceHolder holder, Path path, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		
+		
 		int x3, y3, x4, y4, x5, y5, x6, y6, x7, y7;
 		x3 = (int) Math.round(x1 + Math.sqrt(3) * (x2 - x1)
 				/ (2.0 * (Math.sqrt(3) + 1)) + (y2 - y1)
@@ -34,8 +41,7 @@ public class Huangguan {
 			huangguan(x6, y6, x7, y7, n - 1, holder, path, p);
 			huangguan(x7, y7, x2, y2, n - 1, holder, path, p);
 		} else {
-			Canvas c = holder.lockCanvas();
-
+			
 			if (path.isEmpty()) {
 				path.moveTo(x1, y1);
 			}
@@ -47,9 +53,10 @@ public class Huangguan {
 			path.lineTo(x6, y6);
 			path.lineTo(x7, y7);
 			path.lineTo(x2, y2);
-			c.drawColor(Color.WHITE);
-			c.drawPath(path, p);
-			holder.unlockCanvasAndPost(c);
+			canvas.drawColor(Color.WHITE);
+			canvas.drawPath(path, p);
+
+			G.addBitmap(holder, bitmap);
 		}
 	}
 

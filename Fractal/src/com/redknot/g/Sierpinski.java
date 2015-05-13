@@ -1,14 +1,20 @@
 package com.redknot.g;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Sierpinski {
 	public void sier_gasket(int xa, int ya, int xb, int yb, int xc, int yc,
 			int n, SurfaceHolder holder, Path path, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		
 		int xp, yp, xq, yq, xr, yr;
 		xp = Math.round((xb + xc) / 2);
 		yp = Math.round((yb + yc) / 2);
@@ -22,8 +28,7 @@ public class Sierpinski {
 			sier_gasket(xb, yb, xp, yp, xr, yr, n - 1, holder, path, p);
 			sier_gasket(xc, yc, xq, yq, xp, yp, n - 1, holder, path, p);
 		} else {
-			Canvas c = holder.lockCanvas();
-
+			
 			if (path.isEmpty()) {
 				path.moveTo(xp, yp);
 			}
@@ -38,7 +43,9 @@ public class Sierpinski {
 			path.lineTo(xa, ya);
 			c.drawColor(Color.WHITE);
 			c.drawPath(path, p);
-			holder.unlockCanvasAndPost(c);
+			
+			G.addBitmap(holder, bitmap);
+			
 		}
 
 	}

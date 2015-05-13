@@ -2,16 +2,23 @@ package com.redknot.g;
 
 import java.util.Random;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Leaf {
 
 	public void leaf2(float x, float y, float L, float A,
 			SurfaceHolder holder, Path path, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		c.drawColor(Color.WHITE);
+		
 		float B, C, s1, s2, s3;
 		float x1, y1, x1L, y1L, x1R, y1R, x2, y2, x2R, y2R, x2L, y2L;
 		B = 50;
@@ -34,7 +41,6 @@ public class Leaf {
 			x1R = (float) (x1 + L / s2 * Math.cos((A + B) * Math.PI));
 			y1R = (float) (y1 + L / s1 * Math.sin((A + B) * Math.PI));
 			
-			Canvas c = holder.lockCanvas();
 
 			if (path.isEmpty()) {
 				path.moveTo(x1, y1);
@@ -52,9 +58,8 @@ public class Leaf {
 			
 			c.drawColor(Color.WHITE);
 			c.drawPath(path, p);
-			holder.unlockCanvasAndPost(c);
-			
-			
+		
+			G.addBitmap(holder, bitmap);
 			// Form1.label3.Canvas.MoveTo(Round(x),Round(y));
 			// Form1.label3.Canvas.LineTo(Round(x2),Round(y2));
 			// Form1.label3.Canvas.LineTo(Round(x2R),Round(y2R));
@@ -74,6 +79,11 @@ public class Leaf {
 	}
 
 	public void leaf(SurfaceHolder holder, Paint p) {
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		c.drawColor(Color.WHITE);
+		
 		int i, k, x1, y1;
 		float tempx, x, y, j;
 
@@ -114,7 +124,7 @@ public class Leaf {
 		y = 10000;
 		j = 1.5f;
 		for (i = 0; i < 1000; i++) {
-			Canvas c = holder.lockCanvas();
+			
 			for (int w = 0; w < 300; w++) {
 				tempx = x;
 
@@ -127,7 +137,8 @@ public class Leaf {
 
 				c.drawPoint(0 + x1, 600 - y1, p);
 			}
-			holder.unlockCanvasAndPost(c);
+			
+			G.addBitmap(holder, bitmap);
 
 		}
 

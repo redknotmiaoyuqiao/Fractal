@@ -2,12 +2,19 @@ package com.redknot.g;
 
 import java.util.Random;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Bitmap.Config;
 import android.view.SurfaceHolder;
 
 public class Landform {
 	public void landform(SurfaceHolder holder, Paint p){
+		Bitmap bitmap = Bitmap
+				.createBitmap(G.width, G.height, Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		c.drawColor(Color.WHITE);
 		int i,k,x1,y1,j;
 	    float tempx,x,y;
 	    
@@ -21,7 +28,7 @@ public class Landform {
 	    j=1;
 	    
 		for (i = 0; i < 1000; i++) {
-			Canvas c = holder.lockCanvas();
+	
 			for (int w = 0; w < 300; w++) {
 				tempx = x;
 				Random random = new Random();
@@ -35,8 +42,7 @@ public class Landform {
 
 				System.out.println(x1 + "    " + y1);
 			}
-
-			holder.unlockCanvasAndPost(c);
+			G.addBitmap(holder, bitmap);
 		}
 	}
 }
