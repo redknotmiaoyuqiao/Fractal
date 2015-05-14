@@ -2,7 +2,6 @@ package com.redknot.thread;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 
@@ -21,13 +20,12 @@ public class DrawThread implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		G.bitmap_list.clear();
-
+		// G.bitmap_list.clear();
 		Paint paint = new Paint();
 
 		while (true) {
-			long time1 = System.currentTimeMillis();
-			try {
+
+			synchronized (G.bitmap_list) {
 
 				if (G.bitmap_list.size() == 0) {
 					continue;
@@ -35,21 +33,20 @@ public class DrawThread implements Runnable {
 
 				Bitmap bitmap = G.bitmap_list.get(0);
 
-				Canvas c = holder.lockCanvas();
-				//c.drawColor(Color.WHITE);
-				c.drawBitmap(bitmap, 0, 0, paint);
-				
-				Screen.Bmp = bitmap;
+				try {
+					Canvas c = holder.lockCanvas();
+					c.drawBitmap(bitmap, 0, 0, paint);
+					Screen.Bmp = bitmap;
 
-				holder.unlockCanvasAndPost(c);
-				
+					holder.unlockCanvasAndPost(c);
+				} catch (Exception e) {
+					e.printStackTrace();
+					break;
+				}
+
 				G.bitmap_list.remove(0);
-			} catch (Exception e) {
-				e.printStackTrace();
-				break;
 			}
-			long time2 = System.currentTimeMillis();
-			//System.out.println(time2 - time1);
+
 		}
 	}
 }

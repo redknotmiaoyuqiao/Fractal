@@ -159,6 +159,8 @@ public class BitmapThread implements Runnable {
 				msg.what = 200;
 				this.handler.sendMessage(msg);
 			}
+			
+			System.out.println("end!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 
 	}

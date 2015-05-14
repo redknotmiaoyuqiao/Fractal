@@ -3,29 +3,26 @@ package com.redknot.g;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.redknot.thread.DrawThread;
+import com.redknot.weibo.Screen;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.view.SurfaceHolder;
 
 public class G {
 	public static List<Bitmap> bitmap_list = new ArrayList<Bitmap>();
+	
+	public static boolean isDraw = false;
 
 	public static void addBitmap(SurfaceHolder holder, Bitmap bitmap) {
-		long time1 = System.currentTimeMillis();
-		while (G.bitmap_list.size() > 2) {
-
-			long time2 = System.currentTimeMillis();
-			if ((time2 - time1) > 100) {
-				Canvas c = holder.lockCanvas();
-				holder.unlockCanvasAndPost(c);
-			}
-		}
-
-		synchronized (G.bitmap_list) {
-			G.bitmap_list.add(bitmap);
-		}
+		
+		Canvas c = holder.lockCanvas();
+		Paint paint = new Paint();
+		Screen.Bmp = bitmap;
+		c.drawBitmap(bitmap, 0, 0, paint);
+		holder.unlockCanvasAndPost(c);
+	
 	}
 
 	public static int width;

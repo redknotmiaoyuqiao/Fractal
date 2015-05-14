@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.redknot.thread.BitmapThread;
+import com.redknot.thread.DrawThread;
 import com.redknot.weibo.ShareActivity;
 
 public class MainActivity extends Activity {
@@ -28,6 +30,10 @@ public class MainActivity extends Activity {
 		surfaceview = new MySurfaceView(handler, this);
 
 		setContentView(surfaceview);
+		
+		
+		
+		
 		
 	
 	}

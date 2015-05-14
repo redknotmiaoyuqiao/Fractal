@@ -23,6 +23,7 @@ public class MySurfaceView extends SurfaceView implements
 
 		// this.setBackgroundColor(Color.WHITE);
 		this.handler = handler;
+
 	}
 
 	@Override
@@ -35,9 +36,11 @@ public class MySurfaceView extends SurfaceView implements
 	public void surfaceCreated(SurfaceHolder arg0) {
 
 		// TODO Auto-generated method stub
-		DrawThread t = new DrawThread(holder);
-		new Thread(t).start();
-		BitmapThread b = new BitmapThread(handler,holder, getWidth(), getHeight());
+//		DrawThread tt = new DrawThread(this.holder);
+//		new Thread(tt).start();
+		
+		BitmapThread b = new BitmapThread(handler, this.holder,
+				this.getWidth(), this.getHeight());
 		new Thread(b).start();
 
 	}

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.redknot.activity.MyProgressDialog;
 import com.redknot.fractal.R;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
@@ -27,6 +28,8 @@ public class ShareActivity extends Activity {
 	private AuthInfo mAuthInfo;
 	private SsoHandler mSsoHandler;
 	private Oauth2AccessToken mAccessToken;
+	
+	private MyProgressDialog progress;
 
 	private Button btn_share;
 	private ImageView img_show;
@@ -35,9 +38,12 @@ public class ShareActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_share);
+		
+		progress = new MyProgressDialog(ShareActivity.this, "分享中");
 
 		btn_share = (Button) findViewById(R.id.btn_share);
 		img_show = (ImageView) findViewById(R.id.img_show);
@@ -68,11 +74,9 @@ public class ShareActivity extends Activity {
 					mStatusesAPI = new StatusesAPI(ShareActivity.this,
 							Constants.APP_KEY, mAccessToken);
 
-					Toast.makeText(ShareActivity.this, token, Toast.LENGTH_LONG)
-							.show();
+					progress.showLoginProgressDialog();
 					
-					
-					mStatusesAPI.upload("发送一条带本地图片的微博", Screen.Bmp, null, null,
+					mStatusesAPI.upload("from hFractal", Screen.Bmp, null, null,
 							mListener);
 				}
 
@@ -86,20 +90,21 @@ public class ShareActivity extends Activity {
 		public void onComplete(String response) {
 			if (!TextUtils.isEmpty(response)) {
 				// LogUtil.i(TAG, response);
+				progress.closeLoginProgressDialog();
+				
 				if (response.startsWith("{\"statuses\"")) {
 					// 调用 StatusList#parse 解析字符串成微博列表对象
 					StatusList statuses = StatusList.parse(response);
 					if (statuses != null && statuses.total_number > 0) {
-						Toast.makeText(ShareActivity.this,
-								"获取微博信息流成功, 条数: " + statuses.statusList.size(),
-								Toast.LENGTH_LONG).show();
+						
 					}
 				} else if (response.startsWith("{\"created_at\"")) {
 					// 调用 Status#parse 解析字符串成微博对象
 					Status status = Status.parse(response);
-					Toast.makeText(ShareActivity.this,
-							"发送一送微博成功, id = " + status.id, Toast.LENGTH_LONG)
-							.show();
+					Toast.makeText(ShareActivity.this, 
+                            "Success!!!", 
+                            Toast.LENGTH_LONG).show();
+					
 				} else {
 					Toast.makeText(ShareActivity.this, response,
 							Toast.LENGTH_LONG).show();
@@ -110,8 +115,9 @@ public class ShareActivity extends Activity {
 		@Override
 		public void onWeiboException(WeiboException e) {
 			// LogUtil.e(TAG, e.getMessage());
+			progress.closeLoginProgressDialog();
 			ErrorInfo info = ErrorInfo.parse(e.getMessage());
-			Toast.makeText(ShareActivity.this, info.toString(),
+			Toast.makeText(ShareActivity.this, "fail,check your network",
 					Toast.LENGTH_LONG).show();
 		}
 	};
@@ -141,7 +147,7 @@ public class ShareActivity extends Activity {
 				AccessTokenKeeper.writeAccessToken(ShareActivity.this,
 						mAccessToken);
 				Toast.makeText(ShareActivity.this,
-						"success:" + mAccessToken.getToken(),
+						"Success！now you can click \"share\" button to share",
 						Toast.LENGTH_SHORT).show();
 			} else {
 				// 以下几种情况，您会收到 Code：
