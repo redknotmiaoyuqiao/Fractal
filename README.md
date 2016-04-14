@@ -1,5 +1,14 @@
 #分形软件
 
+![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-33-47.png)
+
+![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-42-15.png)
+
+![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-42-52.png)
+
+![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-14-08-54-13.png)
+
+
 ####2015.4.28
 
 - 加入了4个IFS图像 Mountain，Leaf，Stone，Dragin
