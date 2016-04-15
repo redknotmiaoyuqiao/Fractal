@@ -23,6 +23,8 @@
         </activity>
         <activity android:name="com.redknot.setting.Tree2Setting" >
         </activity>
+        <activity android:name=".FractalActivity">
+        </activity>
 
     </application>
 

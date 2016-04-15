@@ -18,7 +18,7 @@ public class Leaf {
 				.createBitmap(G.width, G.height, Config.ARGB_8888);
 		Canvas c = new Canvas(bitmap);
 		c.drawColor(Color.WHITE);
-		
+
 		float B, C, s1, s2, s3;
 		float x1, y1, x1L, y1L, x1R, y1R, x2, y2, x2R, y2R, x2L, y2L;
 		B = 50;
@@ -40,7 +40,7 @@ public class Leaf {
 			y1L = (float) (y1 + L / s2 * Math.sin((A - B) * Math.PI));
 			x1R = (float) (x1 + L / s2 * Math.cos((A + B) * Math.PI));
 			y1R = (float) (y1 + L / s1 * Math.sin((A + B) * Math.PI));
-			
+
 
 			if (path.isEmpty()) {
 				path.moveTo(x1, y1);
@@ -55,10 +55,10 @@ public class Leaf {
 			path.lineTo(Math.round(x1L),Math.round(y1L));
 			path.moveTo(Math.round(x1),Math.round(y1));
 			path.lineTo(Math.round(x1R),Math.round(y1R));
-			
+
 			c.drawColor(Color.WHITE);
 			c.drawPath(path, p);
-		
+
 			G.addBitmap(holder, bitmap);
 			// Form1.label3.Canvas.MoveTo(Round(x),Round(y));
 			// Form1.label3.Canvas.LineTo(Round(x2),Round(y2));
@@ -83,7 +83,7 @@ public class Leaf {
 				.createBitmap(G.width, G.height, Config.ARGB_8888);
 		Canvas c = new Canvas(bitmap);
 		c.drawColor(Color.WHITE);
-		
+
 		int i, k, x1, y1;
 		float tempx, x, y, j;
 
@@ -124,7 +124,7 @@ public class Leaf {
 		y = 10000;
 		j = 1.5f;
 		for (i = 0; i < 1000; i++) {
-			
+
 			for (int w = 0; w < 300; w++) {
 				tempx = x;
 
@@ -132,12 +132,12 @@ public class Leaf {
 				k = random.nextInt(5) + 1;
 				x = d[k][1] * tempx + d[k][2] * y + d[k][5];
 				y = d[k][3] * tempx + d[k][4] * y + d[k][6];
-				x1 = Math.round(x * j) + 100;
+				x1 = Math.round(x * j);
 				y1 = Math.round(y * j);
 
 				c.drawPoint(0 + x1, 600 - y1, p);
 			}
-			
+
 			G.addBitmap(holder, bitmap);
 
 		}
