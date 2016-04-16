@@ -78,14 +78,18 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
                     c.drawPoint(x, y, paint);
                 }
+
                 try {
                     Canvas canvas = holder.lockCanvas();
                     canvas.drawBitmap(bitmap, 0, 0, paint);
                     holder.unlockCanvasAndPost(canvas);
                 } catch (Exception e) {
                     break;
+
                 }
+
             }
+
         }
     }
 }

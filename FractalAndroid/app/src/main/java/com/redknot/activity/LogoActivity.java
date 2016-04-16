@@ -29,8 +29,8 @@ public class LogoActivity extends Activity {
 		
 		logo = (ImageView) findViewById(R.id.logo);
 		
-		Animation animation = new AlphaAnimation(0.0f, 1.0f);
-		animation.setDuration(2000);
+		Animation animation = new AlphaAnimation(1.0f, 1.0f);
+		animation.setDuration(000);
 		logo.setAnimation(animation);
 		
 		animation.setAnimationListener(new AnimationListener() {

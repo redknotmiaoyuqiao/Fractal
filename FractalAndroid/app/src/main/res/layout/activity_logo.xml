@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical" >
-    <ImageView 
+    <ImageView
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/logo"
         android:id="@+id/logo"
         />
 
