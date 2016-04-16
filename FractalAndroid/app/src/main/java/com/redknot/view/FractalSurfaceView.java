@@ -10,7 +10,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.redknot.fractal.Factory;
-import com.redknot.fractal.Mandborlt;
 import com.redknot.fractal.Fractal;
 
 /**
@@ -79,9 +78,13 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
                     c.drawPoint(x, y, paint);
                 }
-                Canvas canvas = holder.lockCanvas();
-                canvas.drawBitmap(bitmap, 0, 0, paint);
-                holder.unlockCanvasAndPost(canvas);
+                try {
+                    Canvas canvas = holder.lockCanvas();
+                    canvas.drawBitmap(bitmap, 0, 0, paint);
+                    holder.unlockCanvasAndPost(canvas);
+                } catch (Exception e) {
+                    break;
+                }
             }
         }
     }

@@ -10,18 +10,22 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.redknot.domain.FractalItem;
 import com.redknot.fractalandroid.FractalActivity;
 import com.redknot.fractalandroid.R;
 import com.redknot.g.G;
 import com.redknot.setting.Tree2Setting;
 import com.redknot.util.ID;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListActivity extends AppCompatActivity {
 
     private ListView listview;
-    private String[] list = new String[]{"Koch1", "Koch2", "Flower",
-            "Carpet", "Crown", "Levy", "Sierpinski", "Tree", "Tree2", "Mountain",
-            "Leaf", "Stone", "Dragon", "Fractint", "Landform", "Mandborlt"};
+
+    private List<FractalItem> list = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,10 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        addItem();
+
         listview = (ListView) findViewById(R.id.list_view);
-        listview.setAdapter(new ArrayAdapter<String>(this,
+        listview.setAdapter(new ArrayAdapter<FractalItem>(this,
                 android.R.layout.simple_expandable_list_item_1, list));
 
         listview.setOnItemClickListener(new OnItemClickListener() {
@@ -40,87 +46,57 @@ public class ListActivity extends AppCompatActivity {
                                     long arg3) {
                 // TODO Auto-generated method stub
 
-                int id = getId(list[pos]);
-                G.id = id;
-
-                if (G.id == ID.TREE2) {
-                    Intent intent = new Intent(ListActivity.this,
-                            Tree2Setting.class);
-
-                    startActivity(intent);
-                }
-                else if (G.id == ID.Mandborlt) {
-                    Intent intent = new Intent(ListActivity.this,
-                            FractalActivity.class);
-                    intent.putExtra("G_ID",ID.Mandborlt);
-
-                    startActivity(intent);
-                } else {
+                if (list.get(pos).getToWhere() == 1) {
+                    //一般
                     Intent intent = new Intent(ListActivity.this,
                             SettingActivity.class);
-
+                    G.id = list.get(pos).getId();
                     startActivity(intent);
                 }
 
+                if(list.get(pos).getToWhere() == 2){
+                    //Tree2
+                    Intent intent = new Intent(ListActivity.this,
+                            Tree2Setting.class);
+                    G.id = list.get(pos).getId();
+                    startActivity(intent);
+                }
+
+                if(list.get(pos).getToWhere() == 3){
+                    //集合
+                    Intent intent = new Intent(ListActivity.this,
+                            FractalActivity.class);
+                    intent.putExtra("G_ID", list.get(pos).getId());
+
+                    startActivity(intent);
+                }
             }
         });
     }
 
-    private int getId(String name) {
-        if (name.equals("Koch1")) {
-            return ID.KOCH1;
-        }
-        if (name.equals("Leaf")) {
-            return ID.LEAF;
-        }
-        if (name.equals("Koch2")) {
-            return ID.KOCH2;
-        }
-        if (name.equals("Flower")) {
-            return ID.HUALAN;
-        }
-        if (name.equals("Crown")) {
-            return ID.HUANGGUAN;
-        }
-        if (name.equals("Levy")) {
-            return ID.LEVY;
-        }
-        if (name.equals("Sierpinski")) {
-            return ID.SIERPINSKI;
-        }
-        if (name.equals("Tree")) {
-            return ID.TREE;
-        }
-        if (name.equals("Mountain")) {
-            return ID.MOUNTAIN;
-        }
-        if (name.equals("Stone")) {
-            return ID.STONE;
-        }
-        if (name.equals("Dragon")) {
-            return ID.DRAGON;
-        }
-        if (name.equals("Fractint")) {
-            return ID.FRACTAL;
-        }
-        if (name.equals("Landform")) {
-            return ID.LANDFROM;
-        }
-        if (name.equals("Newton")) {
-            return ID.NEWTON;
-        }
-        if (name.equals("Carpet")) {
-            return ID.CARPET;
-        }
-        if (name.equals("Tree2")) {
-            return ID.TREE2;
-        }
-        if (name.equals("Leaf2")) {
-            return ID.LEAF2;
-        }
-        if (name.equals("Mandborlt")) {
-            return ID.Mandborlt;
-        }
-        return 0;
+    private void addItem(){
+        list.add(new FractalItem("Koch1",ID.KOCH1,1));
+        list.add(new FractalItem("Koch2",ID.KOCH2,1));
+        list.add(new FractalItem("Flower",ID.HUALAN,1));
+        list.add(new FractalItem("Carpet",ID.CARPET,1));
+        list.add(new FractalItem("Crown",ID.HUANGGUAN,1));
+        list.add(new FractalItem("Levy",ID.LEVY,1));
+        list.add(new FractalItem("Sierpinski",ID.SIERPINSKI,1));
+        list.add(new FractalItem("Tree",ID.TREE,1));
+
+        list.add(new FractalItem("Tree2",ID.TREE2,2));
+
+        list.add(new FractalItem("Mountain",ID.MOUNTAIN,1));
+        list.add(new FractalItem("Leaf",ID.LEAF,1));
+        list.add(new FractalItem("Stone",ID.STONE,1));
+        list.add(new FractalItem("Dragon",ID.DRAGON,1));
+        list.add(new FractalItem("Fractint",ID.FRACTAL,1));
+        list.add(new FractalItem("Landform",ID.LANDFROM,1));
+
+        list.add(new FractalItem("Mandelbrot",ID.Mandelbrot,3));
+        list.add(new FractalItem("Mandelbrot2",ID.Mandelbrot2,3));
+        list.add(new FractalItem("Mandelbrot3",ID.Mandelbrot3,3));
+        //list.add(new FractalItem("Buddhabrot",ID.Buddhabrot,3));
+        list.add(new FractalItem("Julia",ID.Julia,3));
     }
 }

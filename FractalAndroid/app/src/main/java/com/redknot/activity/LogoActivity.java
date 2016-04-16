@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import com.redknot.fractalandroid.R;
 
-public class LogoActivity extends AppCompatActivity {
+public class LogoActivity extends Activity {
 	
 	private ImageView logo;
 	
@@ -22,8 +22,8 @@ public class LogoActivity extends AppCompatActivity {
 		// TODO Auto-generated method stub
 		
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
-
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_logo);
 		

@@ -18,5 +18,9 @@ public interface ID {
 	public final static int CARPET = 0xe;
 	public final static int TREE2 = 0xf;
 	public final static int LEAF2 = 0x11;
-	public final static int Mandborlt = 0x12;
+	public final static int Mandelbrot = 0x12;
+	public final static int Mandelbrot2 = 0x13;
+	public final static int Mandelbrot3 = 0x14;
+	public final static int Buddhabrot = 0x15;
+	public final static int Julia = 0x16;
 }

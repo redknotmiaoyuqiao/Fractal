@@ -3,9 +3,9 @@ package com.redknot.fractal;
 /**
  * Created by miaoyuqiao on 16/4/16.
  */
-public class Mandborlt extends Fractal {
+public class Mandelbrot extends Fractal {
 
-    public Mandborlt(int width, int height) {
+    public Mandelbrot(int width, int height) {
         super(width, height);
     }
 
