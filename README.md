@@ -1,5 +1,8 @@
 #分形软件
 
+##该App是在郝飞老师的hFractal的基础上建立起来的，感谢郝飞老师，也感谢所有计算机的先辈所做出的无线努力。
+
+
 
 ![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-10-20.png)
 
