@@ -23,4 +23,5 @@ public interface ID {
 	public final static int Mandelbrot3 = 0x14;
 	public final static int Buddhabrot = 0x15;
 	public final static int Julia = 0x16;
+	public final static int CustomJulia = 0x17;
 }

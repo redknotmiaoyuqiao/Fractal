@@ -7,6 +7,7 @@ import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import com.redknot.activity.MainActivity;
 import com.redknot.fractalandroid.R;
 import com.redknot.g.G;
 
-public class Tree2Setting extends Activity {
+public class Tree2Setting extends AppCompatActivity {
 
 	private SeekBar red;
 	private SeekBar green;
