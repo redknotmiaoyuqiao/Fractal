@@ -17,7 +17,7 @@ import com.redknot.domain.OperatorComplex;
  */
 public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-    public JuliaSurfaceView(Context context,double real,double image,int times) {
+    public JuliaSurfaceView(Context context, double real, double image, int times) {
         super(context);
         this.getHolder().addCallback(this);
 
@@ -60,7 +60,8 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
         private SurfaceHolder holder;
 
-        int[] colortab = new int[21];
+        int[] colortab = new int[40
+                ];
 
         public MyThread(SurfaceHolder holder) {
             this.holder = holder;
@@ -87,9 +88,9 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             colortab[19] = Color.rgb(255, 231, 186);
             colortab[20] = Color.rgb(255, 239, 213);
 
-            /*for (int i = 0; i < colortab.length; i++) {
-                colortab[i] = Color.rgb(255, 255, 0 + i * (255 / colortab.length));
-            }*/
+            for (int i = 0; i < colortab.length; i++) {
+                colortab[i] = Color.rgb(0 + i * (255 / colortab.length), 0 + i * (255 / colortab.length), 0 + i * (255 / colortab.length));
+            }
         }
 
         double Iteration(Complex a, int n) {
@@ -108,47 +109,113 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
 
         int dye(double dist) {
+
+            int r = (int) (Math.log(dist) * 47);
+            int g = (int) (Math.log(dist) * 47);
+            int b = (int) (128 - Math.log(dist) * 23);
+
+            if (r > 255) {
+                r = 255;
+            }
+            if (r < 0) {
+                r = 0;
+            }
+            if (g > 255) {
+                g = 255;
+            }
+            if (g < 0) {
+                g = 0;
+            }
+
+            if (b > 255) {
+                b = 255;
+            }
+            if (b < 0) {
+                b = 0;
+            }
+
+            return Color.rgb(r & 255, g & 255, b & 255);
+/*
             if (dist < 1.0 / 4096)
                 return colortab[0];
-            else if (dist < 1.0 / 1024)
+            else if(dist < 1.0 / 2048)
                 return colortab[1];
-            else if (dist < 1.0 / 256)
+            else if (dist < 1.0 / 1024)
                 return colortab[2];
-            else if (dist < 1.0 / 64)
+            else if (dist < 1.0 / 512)
                 return colortab[3];
-            else if (dist < 1.0 / 16)
+            else if (dist < 1.0 / 256)
                 return colortab[4];
-            else if (dist < 1.0 / 4)
+            else if (dist < 1.0 / 128)
                 return colortab[5];
-            else if (dist < 1)
+            else if (dist < 1.0 / 64)
                 return colortab[6];
-            else if (dist < 4)
+            else if (dist < 1.0 / 32)
                 return colortab[7];
-            else if (dist < 16)
+            else if (dist < 1.0 / 16)
                 return colortab[8];
-            else if (dist < 64)
+            else if (dist < 1.0 / 8)
                 return colortab[9];
-            else if (dist < 256)
+            else if (dist < 1.0 / 4)
                 return colortab[10];
-            else if (dist < 1024)
+            else if (dist < 1.0 / 2)
                 return colortab[11];
-            else if (dist < 4096)
+            else if (dist < 1)
                 return colortab[12];
-            else if (dist < 16384)
+            else if (dist < 2)
                 return colortab[13];
-            else if (dist < 65536)
+            else if (dist < 4)
                 return colortab[14];
-            else if (dist < 262144)
+            else if (dist < 8)
                 return colortab[15];
-            else if (dist < 1048576)
+            else if (dist < 16)
                 return colortab[16];
-            else if (dist < 4194304)
+            else if (dist < 32)
                 return colortab[17];
-            else if (dist < 16777216)
+            else if (dist < 64)
                 return colortab[18];
-            else if (dist < 67108864)
+            else if (dist < 128)
                 return colortab[19];
-            else return colortab[20];
+            else if (dist < 256)
+                return colortab[20];
+            else if (dist < 512)
+                return colortab[21];
+            else if (dist < 1024)
+                return colortab[22];
+            else if (dist < 2048)
+                return colortab[23];
+            else if (dist < 4096)
+                return colortab[24];
+            else if (dist < 8192)
+                return colortab[25];
+            else if (dist < 16384)
+                return colortab[26];
+            else if (dist < 32768)
+                return colortab[27];
+            else if (dist < 65536)
+                return colortab[28];
+            else if (dist < 131072)
+                return colortab[29];
+            else if (dist < 262144)
+                return colortab[30];
+            else if (dist < 524288)
+                return colortab[31];
+            else if (dist < 1048576)
+                return colortab[32];
+            else if (dist < 2097152)
+                return colortab[33];
+            else if (dist < 4194304)
+                return colortab[34];
+            else if (dist < 8388608)
+                return colortab[35];
+            else if (dist < 16777216)
+                return colortab[36];
+            else if (dist < 33554432)
+                return colortab[37];
+            else if (dist < 67108864)
+                return colortab[38];
+            else return colortab[39];
+            */
         }
 
         @Override

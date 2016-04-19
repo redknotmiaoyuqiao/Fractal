@@ -18,6 +18,8 @@ import com.redknot.fractal.Fractal;
 public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     private int id;
+    private int width;
+    private int height;
 
     public FractalSurfaceView(Context context, int id) {
         super(context);
@@ -37,6 +39,9 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        this.width = FractalSurfaceView.this.getWidth();
+        this.height = FractalSurfaceView.this.getHeight();
+
         MyThread myThread = new MyThread(holder);
         new Thread(myThread).start();
     }
@@ -61,9 +66,6 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
         @Override
         public void run() {
-            int width = FractalSurfaceView.this.getWidth();
-            int height = FractalSurfaceView.this.getHeight();
-
             Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
 
             Canvas c = new Canvas(bitmap);
