@@ -1,6 +1,5 @@
 package com.redknot.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.redknot.domain.FractalItem;
-import com.redknot.fractalandroid.CustomJuliaActivity;
 import com.redknot.fractalandroid.FractalActivity;
 import com.redknot.fractalandroid.R;
 import com.redknot.g.G;
