@@ -8,7 +8,6 @@ import com.redknot.util.ID;
 public class Factory {
 
     private Factory() {
-
     }
 
     public static Fractal getFractal(int id, int width, int height) {

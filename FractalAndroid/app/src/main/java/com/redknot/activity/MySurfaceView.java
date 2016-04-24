@@ -1,7 +1,6 @@
 package com.redknot.activity;
 
 import com.redknot.thread.BitmapThread;
-import com.redknot.thread.DrawThread;
 
 import android.content.Context;
 import android.os.Handler;

@@ -22,10 +22,6 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     private double c = 0;        //实部
     private double d = 0;          //虚部
 
-    private int width;
-    private int height;
-    private Bitmap bitmap;
-
     private SurfaceHolder holder;
 
     public JuliaSurfaceView(Context context, double real, double image, int times) {
@@ -55,10 +51,6 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         MyThread t = new MyThread(holder);
         new Thread(t).start();
 
-        this.width = JuliaSurfaceView.this.getWidth();
-        this.height = JuliaSurfaceView.this.getHeight();
-
-        this.bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
     }
 
     @Override
@@ -146,11 +138,14 @@ public class JuliaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         @Override
         public void run() {
 
+            int width = JuliaSurfaceView.this.getWidth();
+            int height = JuliaSurfaceView.this.getHeight();
+
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
 
             Canvas c = new Canvas(bitmap);
             c.drawColor(Color.WHITE);
             Paint paint = new Paint();
-
 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {

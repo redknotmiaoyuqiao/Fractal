@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.redknot.view.FractalSurfaceView;
 import com.redknot.view.JuliaSurfaceView;
 
 /**
