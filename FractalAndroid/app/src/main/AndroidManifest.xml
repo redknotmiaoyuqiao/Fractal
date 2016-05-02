@@ -10,7 +10,9 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.redknot.activity.LogoActivity"></activity>
         <activity android:name="com.redknot.activity.MainActivity"></activity>
-        <activity android:name="com.redknot.activity.ListActivity">
+        <activity
+            android:name="com.redknot.activity.ListActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
