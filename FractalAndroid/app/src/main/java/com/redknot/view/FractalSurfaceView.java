@@ -4,13 +4,16 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.redknot.fractal.Factory;
 import com.redknot.fractal.Fractal;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by miaoyuqiao on 16/4/16.
@@ -20,6 +23,8 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     private int id;
     private int width;
     private int height;
+    private Fractal fractal;
+    private int step = 10;// 每次绘制的局部片段高度，需要能被height整除
 
     public FractalSurfaceView(Context context, int id) {
         super(context);
@@ -41,9 +46,24 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     public void surfaceCreated(SurfaceHolder holder) {
         this.width = FractalSurfaceView.this.getWidth();
         this.height = FractalSurfaceView.this.getHeight();
+        this.fractal = Factory.getFractal(id, width, height);
 
-        MyThread myThread = new MyThread(holder);
-        new Thread(myThread).start();
+        Canvas canvas = getHolder().lockCanvas();
+        canvas.drawColor(Color.WHITE);
+        getHolder().unlockCanvasAndPost(canvas);
+
+        ExecutorService service = Executors.newFixedThreadPool(5);
+        for(int i=0; i<height/step; i++){
+            final int finalI = i;
+            service.execute(new Runnable() {
+                @Override
+                public void run() {
+                    Bitmap bitmap = getBitmap(finalI);
+                    drawCanvas(finalI, bitmap);
+
+                }
+            });
+        }
     }
 
     @Override
@@ -56,42 +76,24 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     }
 
-    private class MyThread implements Runnable {
-
-        private SurfaceHolder holder;
-
-        public MyThread(SurfaceHolder holder) {
-            this.holder = holder;
-        }
-
-        @Override
-        public void run() {
-            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-
-            Canvas c = new Canvas(bitmap);
-            c.drawColor(Color.WHITE);
-            Paint paint = new Paint();
-
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    Fractal fractal = Factory.getFractal(id, width, height);
-
-                    paint.setColor(fractal.getColor(x, y));
-
-                    c.drawPoint(x, y, paint);
-                }
-
-                try {
-                    Canvas canvas = holder.lockCanvas();
-                    canvas.drawBitmap(bitmap, 0, 0, paint);
-                    holder.unlockCanvasAndPost(canvas);
-                } catch (Exception e) {
-                    break;
-
-                }
-
+    private Bitmap getBitmap(int yPos){
+        Bitmap bitmap = Bitmap.createBitmap(width, step, Bitmap.Config.RGB_565);
+        for (int y = yPos * step; y < (yPos+1) * step ; y++) {
+            for (int x = 0; x < width; x++) {
+                bitmap.setPixel(x, y % step, fractal.getColor(x, y));
             }
+        }
+        return bitmap;
+    }
 
+    synchronized private void drawCanvas(int yPos, Bitmap bitmap){
+        try {
+            Canvas canvas = getHolder().lockCanvas(new Rect(0, yPos * step, width, (yPos+1) * step));
+            canvas.drawBitmap(bitmap, 0, yPos * step, null);
+            getHolder().unlockCanvasAndPost(canvas);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
+
 }
