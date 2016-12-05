@@ -24,7 +24,7 @@ public class FractalSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     private int width;
     private int height;
     private Fractal fractal;
-    private int step = 2;
+    private int step = 10;// 每次绘制的局部片段高度，需要能被height整除
 
     public FractalSurfaceView(Context context, int id) {
         super(context);
