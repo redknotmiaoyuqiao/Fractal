@@ -1,0 +1,134 @@
+
+{
+	"buildFiles" : 
+	[
+		"C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/CMakeLists.txt",
+		"C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/Android/CMakeLists.txt",
+		"C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/RedLib/CMakeLists.txt",
+		"C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"hstgl-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "hstgl",
+			"buildCommand" : "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target hstgl",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLPaint/GLLine.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLProgram/GLProgram.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLProgram/GLShader.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLVAO/GLVAO.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLTexture/GLTexture.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLComponent/DrawCall.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/GLComponent/Render.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/IMAGE/stb_image.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/HstGL/IMAGE/ImageFile.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a/HstGL/libhstgl.a",
+			"toolchain" : "1896211053"
+		},
+		"julia-lib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "julia-lib",
+			"buildCommand" : "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target julia-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djulia_lib_EXPORTS -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\Android\\..  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -std=c++11 -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/Android/Interface.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/jniLibs/arm64-v8a/libjulia-lib.so",
+			"toolchain" : "1896211053"
+		},
+		"redlib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "redlib",
+			"buildCommand" : "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target redlib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\..  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/RedLib/RedLib.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\. -IC:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\..  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -std=c++11 -fexceptions -frtti -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "C:/JavaProject/Fractal/FractalAndroid/app/src/main/cpp/RedLib/Thread/RedThread.cpp",
+					"workingDirectory" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/arm64-v8a/RedLib/libredlib.a",
+			"toolchain" : "1896211053"
+		}
+	},
+	"toolchains" : 
+	{
+		"1896211053" : 
+		{
+			"cCompilerExecutable" : "C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/redknot/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

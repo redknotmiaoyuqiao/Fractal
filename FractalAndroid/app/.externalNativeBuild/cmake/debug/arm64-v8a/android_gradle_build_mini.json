@@ -1,0 +1,31 @@
+{
+  "buildFiles": [
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\Android\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "julia-lib-Release-arm64-v8a": {
+      "artifactName": "julia-lib",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target julia-lib",
+      "abi": "arm64-v8a",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\jniLibs\\arm64-v8a\\libjulia-lib.so"
+    },
+    "redlib-Release-arm64-v8a": {
+      "artifactName": "redlib",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target redlib",
+      "abi": "arm64-v8a",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a\\RedLib\\libredlib.a"
+    },
+    "hstgl-Release-arm64-v8a": {
+      "artifactName": "hstgl",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target hstgl",
+      "abi": "arm64-v8a",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a\\HstGL\\libhstgl.a"
+    }
+  }
+}

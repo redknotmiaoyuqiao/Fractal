@@ -1,0 +1,31 @@
+{
+  "buildFiles": [
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\Android\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\RedLib\\CMakeLists.txt",
+    "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\cpp\\HstGL\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target clean"
+  ],
+  "libraries": {
+    "red-camera-lib-Release-x86_64": {
+      "artifactName": "red-camera-lib",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target red-camera-lib",
+      "abi": "x86_64",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\src\\main\\jniLibs\\x86_64\\libred-camera-lib.so"
+    },
+    "redlib-Release-x86_64": {
+      "artifactName": "redlib",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target redlib",
+      "abi": "x86_64",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64\\RedLib\\libredlib.a"
+    },
+    "hstgl-Release-x86_64": {
+      "artifactName": "hstgl",
+      "buildCommand": "C:\\Users\\redknot\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target hstgl",
+      "abi": "x86_64",
+      "output": "C:\\JavaProject\\Fractal\\FractalAndroid\\app\\.externalNativeBuild\\cmake\\debug\\x86_64\\HstGL\\libhstgl.a"
+    }
+  }
+}

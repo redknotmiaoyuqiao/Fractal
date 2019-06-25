@@ -24,7 +24,7 @@
         <activity android:name=".FractalActivity"></activity>
         <activity android:name=".CustomJuliaActivity"></activity>
         <activity android:name="com.redknot.setting.JuliaSetting"></activity>
-
+        <activity android:name="com.redknot.activity.JuliaAnimationActivity"></activity>
     </application>
 
 </manifest>

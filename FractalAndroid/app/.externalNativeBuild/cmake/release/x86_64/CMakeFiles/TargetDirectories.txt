@@ -1,0 +1,11 @@
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/edit_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/rebuild_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/Android/CMakeFiles/red-camera-lib.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/Android/CMakeFiles/edit_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/Android/CMakeFiles/rebuild_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/RedLib/CMakeFiles/redlib.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/RedLib/CMakeFiles/edit_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/RedLib/CMakeFiles/rebuild_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/HstGL/CMakeFiles/hstgl.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/HstGL/CMakeFiles/edit_cache.dir
+C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/release/x86_64/HstGL/CMakeFiles/rebuild_cache.dir

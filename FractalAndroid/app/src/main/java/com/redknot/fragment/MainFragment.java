@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.redknot.activity.JuliaAnimationActivity;
 import com.redknot.activity.SettingActivity;
 import com.redknot.domain.FractalItem;
 import com.redknot.fractalandroid.FractalActivity;
@@ -87,6 +88,11 @@ public class MainFragment extends Fragment {
 
                     startActivity(intent);
                 }
+
+                if (list.get(pos).getToWhere() == 5) {
+                    Intent intent = new Intent(MainFragment.this.getContext(), JuliaAnimationActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -122,6 +128,7 @@ public class MainFragment extends Fragment {
 
 
             list.add(new FractalItem("CustomJulia", ID.CustomJulia, 4));
+            list.add(new FractalItem("Julia Animation", ID.JuliaAnimation, 5));
         }
     }
 }

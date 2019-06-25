@@ -1,0 +1,5 @@
+-- operation system is Android-1
+-- current platform: Android
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/JavaProject/Fractal/FractalAndroid/app/.externalNativeBuild/cmake/debug/armeabi-v7a
