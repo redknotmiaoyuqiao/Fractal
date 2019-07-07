@@ -2,7 +2,7 @@
 
 ## 该App是hFractal的Android版本，感谢郝飞老师，也感谢所有计算机的先辈所做出的无限努力。
 
-
+![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/fractal_gl_1.gif)
 
 ![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-10-20.png)
 
