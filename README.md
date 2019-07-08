@@ -2,23 +2,17 @@
 
 ## 该App是hFractal的Android版本，感谢郝飞老师。
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/fractal_gl_1.gif)
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-10-20.png)
+<img width="150" src="https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/fractal_gl_1.gif"/>
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-07-36-29.png)
+<img width="150" src="https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-10-20.png"/>
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-07-50-36.png)
+<img width="150" src="https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-07-36-29.png"/>
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-25-41.png)
+<img width="150" src="https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-07-50-36.png"/>
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-33-47.png)
+<img width="150" src="https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-16-08-25-41.png"/>
 
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-42-15.png)
-
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-13-21-42-52.png)
-
-![image](https://raw.githubusercontent.com/redknotmiaoyuqiao/Fractal/master/img/Screenshot_2016-04-14-08-54-13.png)
 
 
 #### 2015.4.28
